@@ -1,4 +1,5 @@
 import subprocess
+import time
 import os
 from json import JSONDecoder
 
@@ -27,3 +28,12 @@ def telephone_receiver(p_struct):
     p_struct['telephone'] = string_from_file.split(' ')[1]
 
 
+telephone_receiver(struct)
+print(struct)
+time.sleep(40)
+
+while struct['code'] == 'null' or struct['code'] == '':
+    code_receiver(struct)
+    time.sleep(2)
+
+print(struct)
