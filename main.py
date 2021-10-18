@@ -156,9 +156,8 @@ def adidas(device, turn):
     device.sleep(1)
     device.click(rand.randint(35, 680), rand.randint(1160, 1240))  #Добавить адрес
     device.sleep(1)
-
-device.press("home")
-    cash_wipe(device)
+    device.press("home")
+    # cash_wipe(device)
 
 d = u2.connect()
 # gps_red(d, 0)
