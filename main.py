@@ -3,6 +3,7 @@ import random as rand
 import data as dd
 from uiautomator2 import UiObject
 import keyboard as kk
+import cash_wipe as cc
 
 plist = []
 posts = []
@@ -82,31 +83,6 @@ def proxy_red(device, turn):
     device.press("home")
 
 
-def cash_wipe(device):
-    device.press("home")
-    device(text="Настройки").click()
-    device.sleep(1)
-    device.swipe(350, 1200, 350, 1, 0.1)
-    device.swipe(350, 1200, 350, 1, 0.1) # Ищем диспетчер приложений
-    device.swipe(350, 1200, 350, 1, 0.1)
-    device.sleep(1)
-    device.click(89, 591)
-    device.sleep(1)
-    device.swipe(350, 1200, 350, 1, 0.5) # Ищем Adidas
-    device.swipe(350, 1200, 350, 1, 0.5)
-    device.sleep(1)
-    device.click(89, 591) # Нажимаем Adidas
-    device.sleep(1)
-    device.swipe(350, 1200, 350, 600, 0.5) # Свайп к кэшу
-    device.sleep(1)
-    device(text="Очистить данные").click()
-    device.sleep(1)
-    device(text="Да").click()
-    device.sleep(1)
-    device.click(596, 689) # Отчистить кэш
-    device.sleep(1)
-    device.press("home")
-
 
 def adidas(device, turn):
     user = dd.data(posts, addresses, fullnames, telephones, cards)
@@ -147,7 +123,7 @@ def adidas(device, turn):
     device.sleep(7)
     kk.keyboard_num("12345678", device)  # Ввод ПРОВЕРОЧНОГО КОДА
     device.sleep(1)
-    device.click(rand.randint(590, 650), rand.randint(280, 320))  # ентер проверочного кода
+    device.click(rand.randint(599, 650), rand.randint(280, 320))  # ентер проверочного кода
     device.sleep(1)
     device.click(rand.randint(50, 670), rand.randint(980, 1054))  # продолжить с 41 разм
     device.sleep(5)
@@ -156,8 +132,86 @@ def adidas(device, turn):
     device.sleep(1)
     device.click(rand.randint(35, 680), rand.randint(1160, 1240))  #Добавить адрес
     device.sleep(1)
-    device.press("home")
-    # cash_wipe(device)
+    device.click(rand.randint(66, 350), rand.randint(353, 325))  #имя
+    device.sleep(1)
+    kk.keyboard_rus("Имя",device)  #Ввод ИМЕНИ
+    device.sleep(1)
+    device.click(rand.randint(370, 650), rand.randint(300, 325))  #Фамилия
+    device.sleep(1)
+    kk.keyboard_rus("Фамилия", device)  # Ввод Фамилии
+    device.sleep(1)
+    device.click(rand.randint(599, 650), rand.randint(265, 320))  # продолжить
+    device.sleep(1)
+    kk.keyboard_rus("Адрес", device)  # Ввод Адреса
+    device.sleep(1)
+    device.click(rand.randint(599, 650), rand.randint(350, 400))  # продолжить
+    device.sleep(1)
+    #Редачим итоговую анкету с адресом\именем
+    device.click(rand.randint(66, 650), rand.randint(855, 880))  # кнопка дома
+    device.sleep(1)
+    kk.keyboard_rus("123", device)  # Ввод дома
+    device.sleep(1)
+    device.press("back")
+    device.click(rand.randint(66, 650), rand.randint(950, 975))  # кнопка квартиры
+    device.sleep(1)
+    kk.keyboard_rus("123", device)  # Ввод квартиры
+    device.sleep(1)
+    device.press("back")
+    device.click(rand.randint(66, 650), rand.randint(950, 975))  # кнопка города
+    device.sleep(1)
+    kk.keyboard_rus("Москва", device)  # Ввод города
+    device.sleep(1)
+    device.press("back")
+    device.click(rand.randint(66, 650), rand.randint(950, 975))  # кнопка индекса
+    device.sleep(1)
+    kk.keyboard_num("1234543", device)  # Ввод индекса
+    device.sleep(1)
+    device.press("back")
+    device.click(rand.randint(66, 650), rand.randint(950, 975))  # кнопка Мобильный телефон
+    device.sleep(1)
+    kk.keyboard_num("+79771991000", device)  # Ввод телефона
+    device.sleep(1)
+    device.press("back")
+    device.sleep(1)
+    device.click(rand.randint(40, 680), rand.randint(1160, 1240))  # кнопка Сохранить
+    device.sleep(6)
+    device.click(rand.randint(70, 520), rand.randint(850, 1050))  # кнопка Сохранить
+    device.sleep(6)
+    #Добавление оплаты
+    device.click(rand.randint(480, 680), rand.randint(710, 740))  # кнопка выбрать метод оплаты ПРОВЕРИТЬ
+    device.sleep(2)
+    device.click(rand.randint(70, 650), rand.randint(1175, 1230))  # кнопка выбрать ВИЗА МАСТЕРКАРД МИР
+    device.sleep(2)
+    device.click(rand.randint(70, 650), rand.randint(305, 330))  # кнопка номер карты
+    device.sleep(2)
+    kk.keyboard_num("1111222233334444", device)  # Ввод номера карты
+    device.sleep(1)
+    device.click(rand.randint(70, 650), rand.randint(530, 550))  # кнопка срок
+    device.sleep(2)
+    kk.keyboard_num("1111222233334444", device)  # Ввод срока
+    device.sleep(1)
+    device.press("back")
+    device.sleep(1)
+    device.click(rand.randint(70, 650), rand.randint(305, 330))  # кнопка имя на карте
+    device.sleep(2)
+    kk.keyboard_rus("ВАЛЕРА", device)  # Ввод имени
+    device.sleep(1)
+    device.click(rand.randint(70, 650), rand.randint(770, 895))  # кнопка CVV
+    device.sleep(2)
+    kk.keyboard_num("123", device)  # Ввод CVV
+    device.sleep(1)
+    device.press("back")
+    device.sleep(1)
+    device.click(rand.randint(40, 650), rand.randint(1160, 1240))  # кнопка Сохранить карту
+    device.sleep(1)
+    device.click(rand.randint(40, 650), rand.randint(1160, 1240))  # кнопка подтвердить с таймером
+    device.sleep(1)
+    device.click(rand.randint(370, 650), rand.randint(766, 850))  # кнопка подтвердить
+    device.sleep(1)
+
+
+    ##device.swipe(rand.randint(30, 680), rand.randint(1148, 1250),rand.randint(30, 680),rand.randint(10, 350))
+    cc.cash_wipe(device)
 
 d = u2.connect()
 # gps_red(d, 0)
