@@ -84,6 +84,7 @@ def proxy_red(device, turn):
 
 
 
+
 def adidas(device, turn):
     user = dd.data(posts, addresses, fullnames, telephones, cards)
     device.press("home")
