@@ -134,42 +134,42 @@ def adidas(device, turn):
     device.sleep(1)
     device.click(rand.randint(66, 350), rand.randint(353, 325))  #имя
     device.sleep(1)
-    kk.keyboard_rus("Имя",device)  #Ввод ИМЕНИ
+    kk.keyboard_rus(user('name'),device)  #Ввод ИМЕНИ
     device.sleep(1)
     device.click(rand.randint(370, 650), rand.randint(300, 325))  #Фамилия
     device.sleep(1)
-    kk.keyboard_rus("Фамилия", device)  # Ввод Фамилии
+    kk.keyboard_rus(user('surname'), device)  # Ввод Фамилии
     device.sleep(1)
     device.click(rand.randint(599, 650), rand.randint(265, 320))  # продолжить
     device.sleep(1)
-    kk.keyboard_rus("Адрес", device)  # Ввод Адреса
+    kk.keyboard_rus(user('street'), device)  # Ввод Адреса
     device.sleep(1)
     device.click(rand.randint(599, 650), rand.randint(350, 400))  # продолжить
     device.sleep(1)
     #Редачим итоговую анкету с адресом\именем
     device.click(rand.randint(66, 650), rand.randint(855, 880))  # кнопка дома
     device.sleep(1)
-    kk.keyboard_rus("123", device)  # Ввод дома
+    kk.keyboard_rus(user('building'), device)  # Ввод дома
     device.sleep(1)
     device.press("back")
     device.click(rand.randint(66, 650), rand.randint(950, 975))  # кнопка квартиры
     device.sleep(1)
-    kk.keyboard_rus("123", device)  # Ввод квартиры
+    kk.keyboard_rus(user('flat'), device)  # Ввод квартиры
     device.sleep(1)
     device.press("back")
     device.click(rand.randint(66, 650), rand.randint(950, 975))  # кнопка города
     device.sleep(1)
-    kk.keyboard_rus("Москва", device)  # Ввод города
+    kk.keyboard_rus(user('city'), device)  # Ввод города
     device.sleep(1)
     device.press("back")
     device.click(rand.randint(66, 650), rand.randint(950, 975))  # кнопка индекса
     device.sleep(1)
-    kk.keyboard_num("1234543", device)  # Ввод индекса
+    kk.keyboard_num(user('code'), device)  # Ввод индекса
     device.sleep(1)
     device.press("back")
     device.click(rand.randint(66, 650), rand.randint(950, 975))  # кнопка Мобильный телефон
     device.sleep(1)
-    kk.keyboard_num("+79771991000", device)  # Ввод телефона
+    kk.keyboard_num("+79777777777777777", device)  # Ввод телефона
     device.sleep(1)
     device.press("back")
     device.sleep(1)
