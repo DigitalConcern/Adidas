@@ -1,4 +1,5 @@
 import random
+import string
 
 
 def file_len(fname):
@@ -7,21 +8,22 @@ def file_len(fname):
             pass
     return i + 1
 
+
 def proxy(plist):
     check = False
-    if file_len('proxies.txt') <= len(plist):
+    if file_len('proxxs.txt') <= len(plist):
         plist.clear()
     while not check:
-        proxxy: str = random.choice(open('proxies.txt', encoding='utf-8').readlines()).strip()
+        proxxy: str = random.choice(open('proxxs.txt', encoding='utf-8').readlines()).strip()
         if proxxy not in plist:
             true_proxy = proxxy
             check = True
-    points = true_proxy.split(' ')
+    points = true_proxy.split(':')
     proxy_data = {
         'ip': points[0],
-        'name': points[1],
-        'password': points[2],
-        'port': points[3]
+        'port': points[1],
+        'name': points[2],
+        'password': points[3]
     }
     plist.append(true_proxy)
     return proxy_data
@@ -29,10 +31,8 @@ def proxy(plist):
 
 def data(posts, addresses, fullnames, telephones, cards):
     check = False
-    if file_len('posts.txt') <= len(posts):
-        posts.clear()
     while not check:
-        post: str = random.choice(open('posts.txt', encoding='utf-8').readlines()).strip()
+        post: str = ''.join(random.choice(string.ascii_lowercase) for i in range(random.randint(6, 9)))+'@abn-mail.xyz'
         if post not in posts:
             true_post = post
             check = True

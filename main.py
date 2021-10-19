@@ -13,14 +13,15 @@ telephones = []
 cards = []
 d = u2.connect()
 ACCOUNTS = 150
+file = open('UsListLog.txt','w+')
 
 for turn in range(ACCOUNTS):
     user = dd.data(posts, addresses, fullnames, telephones, cards)
+    file.write(str(user)+'\n')
     print(turn, " ", user)
     prox_usr = dd.proxy(plist)
-    print(turn, " ", prox_usr)
-    print(len(posts), " ", len(plist))
 #   cc.cash_wipe(d)
 #   pp.proxy_red(d, prox_usr)
 #   gps.gps_red(d, turn)
 #   aa.adidas_reg(d, user, turn)
+file.close()
