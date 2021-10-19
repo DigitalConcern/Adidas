@@ -1,8 +1,16 @@
 import random
 
 
+def file_len(fname):
+    with open(fname, encoding='utf-8') as f:
+        for i, l in enumerate(f):
+            pass
+    return i + 1
+
 def proxy(plist):
     check = False
+    if file_len('proxies.txt') <= len(plist):
+        plist.clear()
     while not check:
         proxxy: str = random.choice(open('proxies.txt', encoding='utf-8').readlines()).strip()
         if proxxy not in plist:
@@ -21,6 +29,8 @@ def proxy(plist):
 
 def data(posts, addresses, fullnames, telephones, cards):
     check = False
+    if file_len('posts.txt') <= len(posts):
+        posts.clear()
     while not check:
         post: str = random.choice(open('posts.txt', encoding='utf-8').readlines()).strip()
         if post not in posts:
@@ -28,14 +38,18 @@ def data(posts, addresses, fullnames, telephones, cards):
             check = True
 
     check = False
+    if file_len('addresses.txt') <= len(addresses):
+        addresses.clear()
     while not check:
-        address: str = random.choice(open('addresses.txt', encoding='utf-8').readlines()).strip()\
-                  + ', ' + f'{random.randint(1, 50)}'
+        address: str = random.choice(open('addresses.txt', encoding='utf-8').readlines()).strip() \
+                       + ', ' + f'{random.randint(1, 50)}'
         if address not in addresses:
             true_address = address
             check = True
 
     check = False
+    if file_len('names.txt') <= len(fullnames):
+        fullnames.clear()
     while not check:
         fullname: str = random.choice(open('names.txt', encoding='utf-8').readlines()).strip() \
                         + ' ' + random.choice(open('surnames.txt', encoding='utf-8').readlines()).strip() \
@@ -66,5 +80,3 @@ def data(posts, addresses, fullnames, telephones, cards):
     fullnames.append(true_fullname)
 
     return user
-
-
