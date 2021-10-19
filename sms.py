@@ -6,7 +6,7 @@ from json import JSONDecoder
 struct = {
     'id': 'null',
     'telephone': 'null', # Структура должна быть сформирована в main.py
-    'code': 'null'
+    'code': ''
 }
 
 
@@ -18,7 +18,8 @@ def php_script_runner(script_path):
 def code_receiver(p_struct):
     php_script_runner('D:/Programms/SMSactivate/SMScode.php')
     string_from_file = open('telephones.txt', encoding='utf-8').readline() # ф-ция вызова php файла с кодом для принятия кода
-    p_struct['code'] = string_from_file.split(' ')[2]                      # и записи в структуру
+    if string_from_file.split(' ')[2] != '':                               # и записи в структуру
+        p_struct['code'] = string_from_file.split(' ')[2]
 
 
 def telephone_receiver(p_struct):
@@ -30,10 +31,5 @@ def telephone_receiver(p_struct):
 
 telephone_receiver(struct)
 print(struct)
-time.sleep(40)
-
-while struct['code'] == 'null' or struct['code'] == '':
-    code_receiver(struct)
-    time.sleep(2)
-
+code_receiver(struct)
 print(struct)
