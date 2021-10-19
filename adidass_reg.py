@@ -1,8 +1,10 @@
 import random as rand
 import keyboard as kk
+import sms
 
 
-def adidas_reg(device, user, turn):
+
+def adidas_reg(device, user,phons, turn):
     device.press("home")
     device.click(93, 150)  # ADIDAS APP
     device.sleep(10)
@@ -20,7 +22,7 @@ def adidas_reg(device, user, turn):
     device.sleep(1)
     device.click(rand.randint(64, 650), rand.randint(482, 546))  # Емаил
     device.sleep(1)
-    kk.keyboard_eng("EMAIL@KEK.RU", device)  # Ввод емаила
+    kk.keyboard_eng(user('post'), device)  # Ввод емаила
     device.sleep(1)
     device.click(rand.randint(577, 649), rand.randint(300, 388))  # Емаил ентер
     device.sleep(1)
@@ -34,14 +36,47 @@ def adidas_reg(device, user, turn):
     device.sleep(7)
     device.click(rand.randint(35, 680), rand.randint(1025, 1120))  # подтвердить аккаунт
     device.sleep(1)
-    kk.keyboard_num("12345678", device)  # Ввод телефона для пруфа
+
+    kk.keyboard_num(sms.telephone_receiver(phons)['number'], device)  # Ввод телефона для пруфа
     device.sleep(1)
     device.click(rand.randint(570, 643), rand.randint(385, 480))  # ентер телефона
     device.sleep(7)
-    kk.keyboard_num("12345678", device)  # Ввод ПРОВЕРОЧНОГО КОДА
+    kk.keyboard_num(sms.code_receiver(phons)['code'], device)  # Ввод ПРОВЕРОЧНОГО КОДА
     device.sleep(1)
     device.click(rand.randint(599, 650), rand.randint(280, 320))  # ентер проверочного кода
     device.sleep(1)
+    size = rand.randint(1, 15)
+    if size == 1:
+        device.click(Lefterx6)
+    if size == 2:
+            device.click(Lefterx5)
+    if size == 3:
+        device.click(Lefterx4)
+    if size == 4:
+            device.click(Lefterx3)
+    if size == 5:
+        device.click(Lefterx2)
+    if size == 6:
+            device.click(Lefterx1)
+    if size == 7:
+        device.click(center)
+    if size == 8:
+        device.click(Righterx1)
+    if size == 9:
+            device.click(Righterx2)
+    if size == 10:
+        device.click(Righterx3)
+    if size == 11:
+            device.click(Righterx4)
+    if size == 12:
+        device.click(Righterx5)
+    if size == 13:
+            device.click(Righterx6)
+    if size == 14:
+        device.click(Righterx7)
+    if size == 14:
+        device.click(Righterx8)
+
     device.click(rand.randint(50, 670), rand.randint(980, 1054))  # продолжить с 41 разм
     device.sleep(5)
     # НАЧИНАЕТСЯ ЧЕРНЫЙ ЭКРАН
@@ -51,42 +86,42 @@ def adidas_reg(device, user, turn):
     device.sleep(1)
     device.click(rand.randint(66, 350), rand.randint(353, 325))  # имя
     device.sleep(1)
-    kk.keyboard_rus(user('name'), device)  # Ввод ИМЕНИ
+    kk.keyboard_rus(user['name'], device)  # Ввод ИМЕНИ
     device.sleep(1)
     device.click(rand.randint(370, 650), rand.randint(300, 325))  # Фамилия
     device.sleep(1)
-    kk.keyboard_rus(user('surname'), device)  # Ввод Фамилии
+    kk.keyboard_rus(user['surname'], device)  # Ввод Фамилии
     device.sleep(1)
     device.click(rand.randint(599, 650), rand.randint(265, 320))  # продолжить
     device.sleep(1)
-    kk.keyboard_rus(user('street'), device)  # Ввод Адреса
+    kk.keyboard_rus(user['street'], device)  # Ввод Адреса
     device.sleep(1)
     device.click(rand.randint(599, 650), rand.randint(350, 400))  # продолжить
     device.sleep(1)
     # Редачим итоговую анкету с адресом\именем
     device.click(rand.randint(66, 650), rand.randint(855, 880))  # кнопка дома
     device.sleep(1)
-    kk.keyboard_rus(user('building'), device)  # Ввод дома
+    kk.keyboard_rus(user['building'], device)  # Ввод дома
     device.sleep(1)
     device.press("back")
     device.click(rand.randint(66, 650), rand.randint(950, 975))  # кнопка квартиры
     device.sleep(1)
-    kk.keyboard_rus(user('flat'), device)  # Ввод квартиры
+    kk.keyboard_rus(user['flat'], device)  # Ввод квартиры
     device.sleep(1)
     device.press("back")
     device.click(rand.randint(66, 650), rand.randint(950, 975))  # кнопка города
     device.sleep(1)
-    kk.keyboard_rus(user('city'), device)  # Ввод города
+    kk.keyboard_rus(user['city'], device)  # Ввод города
     device.sleep(1)
     device.press("back")
     device.click(rand.randint(66, 650), rand.randint(950, 975))  # кнопка индекса
     device.sleep(1)
-    kk.keyboard_num(user('code'), device)  # Ввод индекса
+    kk.keyboard_num(user['code'], device)  # Ввод индекса
     device.sleep(1)
     device.press("back")
     device.click(rand.randint(66, 650), rand.randint(950, 975))  # кнопка Мобильный телефон
     device.sleep(1)
-    kk.keyboard_num("+79777777777777777", device)  # Ввод телефона
+    kk.keyboard_num("+79777777777777777", device)  # Ввод телефона НОРМ ТЕЛЕФОН С ПЕРЕАДР
     device.sleep(1)
     device.press("back")
     device.sleep(1)
@@ -101,7 +136,7 @@ def adidas_reg(device, user, turn):
     device.sleep(2)
     device.click(rand.randint(70, 650), rand.randint(305, 330))  # кнопка номер карты
     device.sleep(2)
-    kk.keyboard_num("1111222233334444", device)  # Ввод номера карты
+    kk.keyboard_num("1111222233334444", device)  # Ввод номера карты ДОДЕЛАТЬ
     device.sleep(1)
     device.click(rand.randint(70, 650), rand.randint(530, 550))  # кнопка срок
     device.sleep(2)

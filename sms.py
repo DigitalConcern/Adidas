@@ -30,8 +30,3 @@ def telephone_receiver(p_struct):
     p_struct['id'] = string_from_file.split(' ')[0]  # и id и записи в структуру
     p_struct['telephone'] = string_from_file.split(' ')[1]
 
-
-telephone_receiver(struct)
-print(struct)
-code_receiver(struct)
-print(struct)

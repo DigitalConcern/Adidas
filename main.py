@@ -13,6 +13,11 @@ telephones = []
 cards = []
 d = u2.connect()
 ACCOUNTS = 150
+phone = {
+    'id': 'null',
+    'number': 'null',
+    'code': ''
+}
 file = open('UsListLog.txt','w+')
 
 for turn in range(ACCOUNTS):
@@ -23,5 +28,5 @@ for turn in range(ACCOUNTS):
 #   cc.cash_wipe(d)
 #   pp.proxy_red(d, prox_usr)
 #   gps.gps_red(d, turn)
-#   aa.adidas_reg(d, user, turn)
+#   aa.adidas_reg(d, user, phone,turn)
 file.close()
