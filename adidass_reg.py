@@ -47,36 +47,62 @@ def adidas_reg(device, user,phons, turn):
     device.sleep(1)
     size = rand.randint(1, 15)
     if size == 1:
-        device.click(Lefterx6)
+        for p in range(6):
+            device.click(rand.randint(163, 255), rand.randint(636, 674))
+            device.sleep(1)
     if size == 2:
-            device.click(Lefterx5)
+        for p in range(5):
+            device.click(rand.randint(163, 255), rand.randint(636, 674))
+            device.sleep(1)
     if size == 3:
-        device.click(Lefterx4)
+        for p in range(4):
+            device.click(rand.randint(163, 255), rand.randint(636, 674))
+            device.sleep(1)
     if size == 4:
-            device.click(Lefterx3)
+        for p in range(3):
+            device.click(rand.randint(163, 255), rand.randint(636, 674))
+            device.sleep(1)
     if size == 5:
-        device.click(Lefterx2)
+        for p in range(2):
+            device.click(rand.randint(163, 255), rand.randint(636, 674))
+            device.sleep(1)
     if size == 6:
-            device.click(Lefterx1)
-    if size == 7:
-        device.click(center)
+        for p in range(1):
+            device.click(rand.randint(163, 255), rand.randint(636, 674))
+            device.sleep(1)
     if size == 8:
-        device.click(Righterx1)
+        for p in range(1):
+            device.click(rand.randint(465, 530), rand.randint(636, 674))
+            device.sleep(1)
     if size == 9:
-            device.click(Righterx2)
+        for p in range(2):
+            device.click(rand.randint(465, 530), rand.randint(636, 674))
+            device.sleep(1)
     if size == 10:
-        device.click(Righterx3)
+        for p in range(3):
+            device.click(rand.randint(465, 530), rand.randint(636, 674))
+            device.sleep(1)
     if size == 11:
-            device.click(Righterx4)
+        for p in range(4):
+            device.click(rand.randint(465, 530), rand.randint(636, 674))
+            device.sleep(1)
     if size == 12:
-        device.click(Righterx5)
+        for p in range(5):
+            device.click(rand.randint(465, 530), rand.randint(636, 674))
+            device.sleep(1)
     if size == 13:
-            device.click(Righterx6)
+        for p in range(6):
+            device.click(rand.randint(465, 530), rand.randint(636, 674))
+            device.sleep(1)
     if size == 14:
-        device.click(Righterx7)
-    if size == 14:
-        device.click(Righterx8)
-
+        for p in range(7):
+            device.click(rand.randint(465, 530), rand.randint(636, 674))
+            device.sleep(1)
+    if size == 15:
+        for p in range(8):
+            device.click(rand.randint(465, 530), rand.randint(636, 674))
+            device.sleep(1)
+    device.sleep(1)
     device.click(rand.randint(50, 670), rand.randint(980, 1054))  # продолжить с 41 разм
     device.sleep(5)
     # НАЧИНАЕТСЯ ЧЕРНЫЙ ЭКРАН
