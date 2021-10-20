@@ -4,8 +4,9 @@ import random as rand
 def adidas_ext(device):
     device.sleep(2)
     device.press("home")
+    device.sleep(2)
     device.click(93, 150)  # ADIDAS APP
-    device.sleep(25)
+    device.sleep(5)
     device.click(rand.randint(610, 700), rand.randint(60, 150))  # профиль
     device.sleep(6)
     device.click(rand.randint(510, 690), rand.randint(370, 405))  # настройки

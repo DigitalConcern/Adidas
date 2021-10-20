@@ -12,11 +12,19 @@ def adidas_reg(device, user, phons, turn):
     device.sleep(2)
     device.click(rand.randint(113, 550), rand.randint(672, 750))
     print('Мужская одежда')
-    device.sleep(15)
+    device.sleep(5)
 
     device.click(rand.randint(185, 240), rand.randint(1195, 1250))
     print('Поиск')
+    device.sleep(1)
+
+    device.click(rand.randint(42, 100), rand.randint(1195, 1250))
+    print('дропы')
     device.sleep(5)
+
+    device.click(rand.randint(185, 240), rand.randint(1195, 1250))
+    print('Поиск')
+    device.sleep(1)
 
     device.click(rand.randint(42, 100), rand.randint(1195, 1250))
     print('дропы')
@@ -60,7 +68,7 @@ def adidas_reg(device, user, phons, turn):
     kk.keyboard_num(phons['number'], device)
     print(' Ввод телефона для пруфа')
     device.sleep(2)
-    device.click(rand.randint(570, 643), rand.randint(385, 480))
+    device.click(rand.randint(600, 643), rand.randint(420, 450))
     print(' ентер телефона')
     device.sleep(10)
     sms.code_receiver(phons)
