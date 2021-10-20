@@ -30,4 +30,5 @@ for turn in range(ACCOUNTS):
     pp.proxy_red(d, prox_usr,turn)
     gps.gps_red(d, turn)
     aa.adidas_reg(d, user, phone,turn)
+    
 file.close()

@@ -9,10 +9,15 @@ fclose($fd);
 
 $fd = fopen("telephones.txt", 'a+') or die("не удалось открыть файл");
 
+$ctr = 0;
 do {
     // получаем статус и код
     $format = 'https://sms-activate.ru/stubs/handler_api.php?api_key=14e8cA2940563A8c5358d135b4Abe74e&action=getStatus&id=%d';
-    $status = file_get_contents(sprintf($format, $id));
+    try {
+        $status = file_get_contents(sprintf($format, $id));
+    } catch (Exception $e){
+        echo $e->getMessage();
+    }
 
     // открываем файл и дозаписываем туда код, закрываем
     if (explode(":", $status)[0] == "STATUS_OK") {
@@ -22,8 +27,15 @@ do {
         fwrite($fd, $toFile2);
     }
     sleep(2);
+    $ctr += 2;
 
-} while(explode(":", $status)[0] != "STATUS_OK");
+} while((explode(":", $status)[0] != "STATUS_OK") && $ctr < 120);
+if ($ctr >= 120) {
+    $toFile1 = " ";
+    $toFile2 = "STATUS_WAIT_CODE";
+    fwrite($fd, $toFile1);
+    fwrite($fd, $toFile2);
+}
 fclose($fd);
 
 // пишем на сервак что все збс

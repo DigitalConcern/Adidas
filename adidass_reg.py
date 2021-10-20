@@ -63,6 +63,8 @@ def adidas_reg(device, user, phons, turn):
     device.click(rand.randint(35, 680), rand.randint(1025, 1120))
     print('подтвердить аккаунт')
     device.sleep(2)
+
+
     sms.telephone_receiver(phons)
     device.sleep(2)
     kk.keyboard_num(phons['number'], device)
@@ -72,7 +74,12 @@ def adidas_reg(device, user, phons, turn):
     print(' ентер телефона')
     device.sleep(5)
     sms.code_receiver(phons)
+    if (phons['code'] == "STATUS_WAIT_CODE"):
+        device.press("home")
+        exit(1)    
     device.sleep(2)
+
+
     kk.keyboard_num(phons['code'], device)
     print(' Ввод ПРОВЕРОЧНОГО КОДА')
     device.sleep(2)
