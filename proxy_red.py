@@ -4,7 +4,7 @@ import data as dd
 def proxy_red(device, proxy, turn):
     device.press("home")
     device.sleep(1)
-    device.click(439, 140)  ##Proxy APP
+    device.click(439, 140)  # Proxy APP
     device.sleep(3)
     device.click(287, 1215)
     device.sleep(1)

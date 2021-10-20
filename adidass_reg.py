@@ -12,7 +12,7 @@ def adidas_reg(device, user, phons, turn):
     device.sleep(2)
     device.click(rand.randint(113, 550), rand.randint(672, 750))
     print('Мужская одежда')
-    device.sleep(5)
+    device.sleep(6)
 
     device.click(rand.randint(185, 240), rand.randint(1195, 1250))
     print('Поиск')
@@ -50,8 +50,8 @@ def adidas_reg(device, user, phons, turn):
     device.sleep(8)
     device.click(rand.randint(460, 550), rand.randint(380, 420))
     print('старше 14')
-    device.sleep(8)
-    device.click(rand.randint(66, 550), rand.randint(353, 386))
+    device.sleep(5)
+    device.click(rand.randint(70, 250), rand.randint(360, 380))
     print(' пароль клик')
     device.sleep(2)
     kk.keyboard_eng("12345678Ab", device)
@@ -64,7 +64,6 @@ def adidas_reg(device, user, phons, turn):
     print('подтвердить аккаунт')
     device.sleep(2)
 
-
     sms.telephone_receiver(phons)
     device.sleep(2)
     kk.keyboard_num(phons['number'], device)
@@ -74,18 +73,17 @@ def adidas_reg(device, user, phons, turn):
     print(' ентер телефона')
     device.sleep(5)
     sms.code_receiver(phons)
-    if (phons['code'] == "STATUS_WAIT_CODE"):
+    if phons['code'] == "STATUS_WAIT_CODE":
         device.press("home")
-        exit(1)    
+        return 0
     device.sleep(2)
-
 
     kk.keyboard_num(phons['code'], device)
     print(' Ввод ПРОВЕРОЧНОГО КОДА')
     device.sleep(2)
     device.click(rand.randint(599, 650), rand.randint(280, 320))
     print(' ентер проверочного кода')
-    device.sleep(8)
+    device.sleep(9)
     size = rand.randint(1, 15)
     if size == 1:
         for p in range(6):
@@ -144,91 +142,128 @@ def adidas_reg(device, user, phons, turn):
             device.click(rand.randint(465, 530), rand.randint(636, 674))
             device.sleep(3)
     device.sleep(5)
-    device.click(rand.randint(50, 670), rand.randint(980, 1054))  # продолжить с разм
+    device.click(rand.randint(50, 670), rand.randint(980, 1054))
+    print('продолжить с разм')
     device.sleep(10)
     # НАЧИНАЕТСЯ ЧЕРНЫЙ ЭКРАН
-    device.click(rand.randint(120, 680), rand.randint(595, 690))  # адрес
+    device.click(rand.randint(120, 680), rand.randint(595, 690))
+    print('адрес')
     device.sleep(3)
-    device.click(rand.randint(35, 680), rand.randint(1160, 1240))  # Добавить адрес
+    device.click(rand.randint(35, 680), rand.randint(1160, 1240))
+    print('Добавить адрес')
     device.sleep(3)
-    device.click(rand.randint(66, 300), rand.randint(300, 325))  # имя
+    device.click(rand.randint(66, 300), rand.randint(300, 325))
+    print('имя')
     device.sleep(3)
-    kk.keyboard_rus(user['name'], device,1,1)  # Ввод ИМЕНИ
+    kk.keyboard_rus(user['name'], device, 1, 1)
+    print('Ввод ИМЕНИ')
     device.sleep(3)
-    device.click(rand.randint(370, 500), rand.randint(300, 325))  # Фамилия
+    device.click(rand.randint(370, 500), rand.randint(300, 325))
+    print('Фамилия')
     device.sleep(3)
-    kk.keyboard_rus(user['surname'], device,0,1)  # Ввод Фамилии
+    kk.keyboard_rus(user['surname'], device, 0, 1)
+    print('Ввод Фамилии')
     device.sleep(3)
-    device.click(rand.randint(599, 650), rand.randint(265, 320))  # продолжить
+    device.click(rand.randint(599, 650), rand.randint(265, 320))
+    print('продолжить')
     device.sleep(10)
-    kk.keyboard_rus(user['street'], device,0,1)  # Ввод Адреса
+    kk.keyboard_rus(user['street'], device, 0, 1)
+    print('Ввод Адреса')
     device.sleep(3)
-    device.click(rand.randint(599, 650), rand.randint(350, 400))  # продолжить
+    device.click(rand.randint(599, 650), rand.randint(350, 400))
+    print('продолжить')
     device.sleep(6)
     # Редачим итоговую анкету с адресом\именем
-    device.click(rand.randint(66, 650), rand.randint(855, 880))  # кнопка дома
+    device.click(rand.randint(66, 650), rand.randint(855, 880))
+    print('кнопка дома')
     device.sleep(3)
-    kk.keyboard_rus(user['building'], device,0,1)  # Ввод дома
+    kk.keyboard_rus(user['building'], device, 0, 1)
+    print('Ввод дома')
     device.sleep(3)
     device.press("back")
     device.sleep(3)
-    device.click(rand.randint(66, 650), rand.randint(950, 975))  # кнопка квартиры
+    device.click(rand.randint(66, 650), rand.randint(950, 975))
+    print('кнопка квартиры')
     device.sleep(3)
-    kk.keyboard_rus(user['flat'], device,0,1)  # Ввод квартиры
+    kk.keyboard_rus(user['flat'], device, 0, 1)
+    print('Ввод квартиры')
     device.sleep(1)
     device.press("back")
     device.sleep(3)
-    device.click(rand.randint(66, 650), rand.randint(950, 975))  # кнопка города
+    device.click(rand.randint(66, 650), rand.randint(950, 975))
+    print('кнопка города')
     device.sleep(3)
-    kk.keyboard_rus(user['city'], device,0,1)  # Ввод города
+    kk.keyboard_rus(user['city'], device, 0, 1)
+    print('Ввод города')
     device.sleep(3)
     device.press("back")
     device.sleep(3)
-    device.click(rand.randint(66, 650), rand.randint(950, 975))  # кнопка индекса
+    device.click(rand.randint(66, 650), rand.randint(950, 975))
+    print('кнопка индекса')
     device.sleep(3)
-    kk.keyboard_num(user['code'], device)  # Ввод индекса
+    kk.keyboard_num(user['code'], device)
+    print('Ввод индекса')
     device.sleep(1)
     device.press("back")
     device.sleep(3)
-    device.click(rand.randint(66, 650), rand.randint(950, 975))  # кнопка Мобильный телефон
+    device.click(rand.randint(66, 650), rand.randint(950, 975))
+    print('кнопка Мобильный телефон')
     device.sleep(3)
-    kk.keyboard_num("+79776543035", device)  # Ввод телефона НОРМ ТЕЛЕФОН С ПЕРЕАДР
+    kk.keyboard_num("+79776543035", device)
+    print('Ввод телефона НОРМ ТЕЛЕФОН С ПЕРЕАДР')
     device.sleep(3)
     device.press("back")
     device.sleep(3)
-    device.click(rand.randint(40, 680), rand.randint(1160, 1240))  # кнопка Сохранить
-    device.sleep(25)
-    device.click(rand.randint(70, 520), rand.randint(850, 1050))  # выбрать адрес
+    device.click(rand.randint(40, 680), rand.randint(1160, 1240))
+    print(' кнопка Сохранить')
     device.sleep(6)
+    device.click(rand.randint(75, 400), rand.randint(900, 1000))
+    print(' выбрать адрес')
+    device.sleep(10)
     # Добавление оплаты
-    device.click(rand.randint(480, 680), rand.randint(710, 740))  # кнопка выбрать метод оплаты ПРОВЕРИТЬ
+    device.click(rand.randint(480, 680), rand.randint(860, 890))
+    print(' кнопка выбрать метод оплаты')
     device.sleep(3)
-    device.click(rand.randint(70, 650), rand.randint(1175, 1230))  # кнопка выбрать ВИЗА МАСТЕРКАРД МИР
+    device.click(rand.randint(70, 500), rand.randint(1175, 1230))
+    print(' кнопка выбрать ВИЗА МАСТЕРКАРД МИР')
     device.sleep(3)
-    device.click(rand.randint(70, 650), rand.randint(305, 330))  # кнопка номер карты
+    device.click(rand.randint(70, 650), rand.randint(305, 330))
+    print(' кнопка номер карты')
     device.sleep(3)
-    kk.keyboard_num("5536913992523155", device)  # Ввод номера карты ДОДЕЛАТЬ
+    kk.keyboard_num("5536913992523155", device)
+    print('Ввод номера карты ДОДЕЛАТЬ')
     device.sleep(3)
-    device.click(rand.randint(70, 650), rand.randint(530, 550))  # кнопка срок
+    device.click(rand.randint(70, 650), rand.randint(530, 550))
+    print(' кнопка срок')
     device.sleep(3)
-    kk.keyboard_num("0629", device)  # Ввод срока
+    kk.keyboard_num("06", device)
     device.sleep(3)
-    device.press("back")
-    device.sleep(3)
-    device.click(rand.randint(70, 650), rand.randint(305, 330))  # кнопка имя на карте
-    device.sleep(3)
-    kk.keyboard_eng("Denis Babkin", device)  # Ввод имени
-    device.sleep(3)
-    device.click(rand.randint(70, 650), rand.randint(770, 895))  # кнопка CVV
-    device.sleep(3)
-    kk.keyboard_num("892", device)  # Ввод CVV
+    kk.keyboard_num("29", device)
+    print(' Ввод срока')
     device.sleep(3)
     device.press("back")
     device.sleep(3)
-    device.click(rand.randint(40, 650), rand.randint(1160, 1240))  # кнопка Сохранить карту
+    device.click(rand.randint(70, 650), rand.randint(305, 330))
+    print('кнопка имя на карте')
     device.sleep(3)
-    device.click(rand.randint(40, 650), rand.randint(1160, 1240))  # кнопка подтвердить с таймером
+    kk.keyboard_eng("Denis Babkin", device)
+    print('Ввод имени')
     device.sleep(3)
-    device.click(rand.randint(370, 650), rand.randint(766, 850))  # кнопка подтвердить
+    device.click(rand.randint(70, 650), rand.randint(770, 895))
+    print('кнопка CVV')
     device.sleep(3)
-    device.sleep(2)
+    kk.keyboard_num("892", device)
+    print(' Ввод CVV')
+    device.sleep(3)
+    device.press("back")
+    device.sleep(3)
+    device.click(rand.randint(40, 650), rand.randint(1160, 1240))
+    print('кнопка Сохранить карту')
+    device.sleep(3)
+    device.click(rand.randint(40, 650), rand.randint(1160, 1240))
+    print('кнопка подтвердить с таймером')
+    device.sleep(3)
+    device.click(rand.randint(370, 650), rand.randint(766, 850))
+    print('кнопка подтвердить')
+    device.sleep(7)
+

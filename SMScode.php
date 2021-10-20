@@ -29,7 +29,7 @@ do {
     sleep(2);
     $ctr += 2;
 
-} while((explode(":", $status)[0] != "STATUS_OK") && $ctr < 120);
+} while((explode(":", $status)[0] != "STATUS_OK") && $ctr < 240);
 if ($ctr >= 120) {
     $toFile1 = " ";
     $toFile2 = "STATUS_WAIT_CODE";
