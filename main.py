@@ -21,7 +21,7 @@ phone = {
 file = open('UsListLog.txt','w+')
 
 for turn in range(ACCOUNTS):
-    #ee.adidas_ext(d)
+    ee.adidas_ext(d)
     user = dd.data(posts, addresses, fullnames, phone, cards)
     file.write(str(user)+'\n')
     print(turn, " ", user)

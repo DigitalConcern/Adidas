@@ -1,1 +1,0 @@
-{'name': 'Савва', 'surname': 'Никифоров', 'midname': 'Тарасович', 'country': 'Россия', 'city': 'Москва', 'street': 'Студёный проезд', 'building': 'дом 2 корпус 9', 'flat': '19', 'code': '127282', 'tele': 'NULL', 'post': 'vwlsycp@abn-mail.xyz', 'password': 'TheBestGuysEver1', 'card': 'NULL'}

@@ -3,8 +3,10 @@ import random as rand
 
 def adidas_ext(device):
     device.sleep(2)
-    device.press("home")
-    device.sleep(2)
+    for i in range(12):
+        device.press("back")
+        device.sleep(1)
+    device.sleep(3)
     device.click(93, 150)  # ADIDAS APP
     device.sleep(5)
     device.click(rand.randint(610, 700), rand.randint(60, 150))  # профиль
