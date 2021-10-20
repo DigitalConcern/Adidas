@@ -17,7 +17,7 @@ do {
         fwrite($fd, $toFile);
         fclose($fd);
     }
-    sleep(2)
+    sleep(2);
 
 } while(explode(":", $numberGet)[0] != "ACCESS_NUMBER");
 

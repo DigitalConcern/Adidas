@@ -52,3 +52,4 @@ def proxy_red(device, proxy, turn):
     device.click(287, 1215)
     device.sleep(5)
     device.press("home")
+    device.sleep(2)

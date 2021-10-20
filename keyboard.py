@@ -1,7 +1,7 @@
 import uiautomator2 as u2
 import random as rand
 
-#СДЕЛАТЬ ПРОВЕРКУ НА КОРРЕКТНОСТЬ ВВОДА
+# СДЕЛАТЬ ПРОВЕРКУ НА КОРРЕКТНОСТЬ ВВОДА
 
 d = u2.connect()
 eng = {
@@ -106,19 +106,20 @@ sym = {
 }
 
 num = {
-    '1': [rand.randint(20, 160),  rand.randint(790, 880)],
+    '1': [rand.randint(20, 160), rand.randint(790, 880)],
     '2': [rand.randint(200, 330), rand.randint(790, 880)],
     '3': [rand.randint(380, 510), rand.randint(790, 880)],
 
-    '4': [rand.randint(20, 160),  rand.randint(912, 1000)],
+    '4': [rand.randint(20, 160), rand.randint(912, 1000)],
     '5': [rand.randint(200, 330), rand.randint(912, 1000)],
     '6': [rand.randint(380, 510), rand.randint(912, 1000)],
 
-    '7': [rand.randint(20, 160),  rand.randint(1030, 1120)],
+    '7': [rand.randint(20, 160), rand.randint(1030, 1120)],
     '8': [rand.randint(200, 330), rand.randint(1030, 1120)],
     '9': [rand.randint(380, 510), rand.randint(1030, 1120)],
 
-    '0': [rand.randint(200, 330), rand.randint(1155, 1235)]
+    '0': [rand.randint(200, 330), rand.randint(1155, 1235)],
+    '+': [rand.randint(200, 330), rand.randint(1155, 1235)]
 }
 
 
@@ -140,10 +141,15 @@ def keyboard_sym(string, device):
     device.click(rand.randint(19, 97), rand.randint(1184, 1236))
 
 
-def keyboard_rus(string, device):
-    device.swipe(rand.randint(211, 253),rand.randint(1192, 1232),rand.randint(470, 510),rand.randint(1192, 1232))
+def keyboard_rus(string, device, ifrus, ifshift):
+    if ifrus != 1:
+        device.swipe(rand.randint(211, 253), rand.randint(1192, 1232), rand.randint(470, 510), rand.randint(1192, 1232))
     device.sleep(rand.uniform(0.1, 0.7))
-
+    if ifshift!=0:
+        device.sleep(2)
+        device.click(rus['shift'][0], rus['shift'][1])
+        device.sleep(2)
+        device.click(rus['shift'][0], rus['shift'][1])
     lets = list(string)
     for let in lets:
         if let in list('1234567890@#$_&+-=()/*,.'):
@@ -193,5 +199,8 @@ def keyboard_eng(string, device):
 def keyboard_num(string, device):
     lets = list(string)
     for let in lets:
-        device.click(num[let][0], num[let][1])
+        if let != '+':
+            device.click(num[let][0], num[let][1])
+        else:
+            device.long_click(num[let][0], num[let][1])
     device.sleep(rand.uniform(0.1, 0.7))
