@@ -30,7 +30,7 @@ do {
     $ctr += 2;
 
 } while((explode(":", $status)[0] != "STATUS_OK") && $ctr < 240);
-if ($ctr >= 120) {
+if ($ctr >= 240) {
     $toFile1 = " ";
     $toFile2 = "STATUS_WAIT_CODE";
     fwrite($fd, $toFile1);

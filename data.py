@@ -32,7 +32,7 @@ def proxy(plist):
 def data(posts, addresses, fullnames, telephones, cards):
     check = False
     while not check:
-        post: str = ''.join(random.choice(string.ascii_lowercase) for i in range(random.randint(6, 9)))+'@abn-mail.xyz'
+        post: str = ''.join(random.choice(string.ascii_lowercase) for i in range(random.randint(5, 7)))+'@abn-mail.xyz'
         if post not in posts:
             true_post = post
             check = True

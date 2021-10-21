@@ -4,7 +4,7 @@
 
 do {
     // Создаем номер телефона
-    $numberGet = file_get_contents('https://sms-activate.ru/stubs/handler_api.php?api_key=14e8cA2940563A8c5358d135b4Abe74e&action=getNumber&service=an&forward=0&operator=any&ref=null&country=0&freePrice=false');
+    $numberGet = file_get_contents('https://sms-activate.ru/stubs/handler_api.php?api_key=14e8cA2940563A8c5358d135b4Abe74e&action=getNumber&service=an&forward=0&operator=tele2&ref=null&country=0&freePrice=false');
 
     if (explode(":", $numberGet)[0] == "ACCESS_NUMBER") {
         // делим вывод на id и номер телефона, стыкуем для записи в файл

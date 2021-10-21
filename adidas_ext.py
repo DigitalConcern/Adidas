@@ -4,8 +4,9 @@ import random as rand
 def adidas_ext(device):
     device.sleep(1)
     device.press("home")
+    device.sleep(1)
     device.click(93, 150)  # ADIDAS APP
-    device.sleep(2)
+    device.sleep(1)
     for i in range(12):
         device.press("back")
         device.sleep(0.5)

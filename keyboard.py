@@ -142,35 +142,40 @@ def keyboard_sym(string, device):
     device.click(rand.randint(19, 97), rand.randint(1184, 1236))
 
 
-def keyboard_rus(string, device, ifrus, ifshift):
-    if ifrus != 1:
-        device.swipe(rand.randint(211, 253), rand.randint(1192, 1232), rand.randint(470, 510), rand.randint(1192, 1232))
-    device.sleep(rand.uniform(0.1, 0.3))
-    if ifshift != 0:
-        device.sleep(1)
-        device.click(rus['shift'][0], rus['shift'][1])
-        device.sleep(1)
-        device.click(rus['shift'][0], rus['shift'][1])
+def keyboard_rus(string, device):
+    device.swipe(rand.randint(211, 253), rand.randint(1192, 1232), rand.randint(470, 510), rand.randint(1192, 1232))
+    # if ifrus != 1:
+    #     device.swipe(rand.randint(211, 253), rand.randint(1192, 1232), rand.randint(470, 510), rand.randint(1192, 1232))
+    # device.sleep(rand.uniform(0.1, 0.3))
+    # if ifshift != 0:
+    #     device.sleep(1)
+    #     device.click(rus['shift'][0], rus['shift'][1])
+    #     device.sleep(1)
+    #     device.click(rus['shift'][0], rus['shift'][1])
     lets = list(string)
-    first_letter = 1
+    # first_letter = 1
+    i = 0
     for let in lets:
         if let in list('1234567890@#$_&+-=()/*,.'):
             keyboard_sym_pause(let, device)
         else:
-            rand_chars = ['а', 'п', 'р', 'о', 'т', 'и', 'м', 'ь', 'г', 'ш', 'к', 'в']
-            if rand.randint(1, 8) == 3 and first_letter != 1:
-                device.click(rus[rand.choice(rand_chars)][0], rus[rand.choice(rand_chars)][1])
-                device.sleep(0.2)
-                device.click(rus['back'][0], rus['back'][1])
-                device.sleep(0.2)
-            first_letter = 0
+            if i > 0:
+                rand_chars = ['а', 'п', 'р', 'о', 'т', 'и', 'м', 'ь', 'г', 'ш', 'к', 'в']
+                if rand.randint(1, 8) == 3:
+                    rand_char = rand.choice(rand_chars)
+                    device.click(rus[rand_char][0], rus[rand_char][1])
+                    device.sleep(0.2)
+                    device.click(rus['back'][0], rus['back'][1])
+                    device.sleep(0.2)
+
             if let.isupper():
                 let = let.lower()
-                device.click(rus['shift'][0], rus['shift'][1])
+                # device.click(rus['shift'][0], rus['shift'][1])
                 device.click(rus[let][0], rus[let][1])
             else:
                 device.click(rus[let][0], rus[let][1])
         device.sleep(rand.uniform(0.1, 0.3))
+        i += 1
 
     device.sleep(rand.uniform(0.1, 0.3))
     device.swipe(rand.randint(211, 253), rand.randint(1192, 1232), rand.randint(470, 510), rand.randint(1192, 1232))
@@ -178,16 +183,19 @@ def keyboard_rus(string, device, ifrus, ifshift):
 
 def keyboard_eng(string, device):
     lets = list(string)
+    i = 0
     for let in lets:
         if let in list('1234567890@#$_&+-=()/*,.'):
             keyboard_sym_pause(let, device)
         else:
-            rand_chars = ['j', 'g', 'f', 'h', 'l', 'b', 'v', 'c', 'n', 'm', 'x', 'r']
-            if rand.randint(1, 8) == 3:
-                device.click(eng[rand.choice(rand_chars)][0], eng[rand.choice(rand_chars)][1])
-                device.sleep(0.2)
-                device.click(eng['back'][0], eng['back'][1])
-                device.sleep(0.2)
+            if i > 0:
+                rand_chars = ['j', 'g', 'f', 'h', 'l', 'b', 'v', 'c', 'n', 'm', 'x', 'r']
+                if rand.randint(1, 8) == 3:
+                    rand_char = rand.choice(rand_chars)
+                    device.click(eng[rand_char][0], eng[rand_char][1])
+                    device.sleep(0.2)
+                    device.click(eng['back'][0], eng['back'][1])
+                    device.sleep(0.2)
 
             if let.isupper():
                 let = let.lower()
@@ -196,6 +204,7 @@ def keyboard_eng(string, device):
             else:
                 device.click(eng[let][0], eng[let][1])
         device.sleep(rand.uniform(0.1, 0.3))
+        i += 1
 
 
 def keyboard_num(string, device):

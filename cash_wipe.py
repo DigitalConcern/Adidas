@@ -14,7 +14,7 @@ def cash_wipe(device):
     device.click(89, 591) # Нажимаем Adidas
     device.sleep(2)
     device.swipe(350, 1200, 350, 600, 0.5) # Свайп к кэшу
-    device.sleep(1)
+    device.sleep(10)
     device(text="Очистить данные").click()
     device.sleep(1)
     device(text="Да").click()
