@@ -170,7 +170,7 @@ def keyboard_rus(string, device):
 
             if let.isupper():
                 let = let.lower()
-                # device.click(rus['shift'][0], rus['shift'][1])
+                device.click(rus['shift'][0], rus['shift'][1])
                 device.click(rus[let][0], rus[let][1])
             else:
                 device.click(rus[let][0], rus[let][1])
