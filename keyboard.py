@@ -131,9 +131,9 @@ def keyboard_sym_pause(letter, device):
         device.sleep(0.1)
     else:
         device.click(rand.randint(19, 97), rand.randint(1184, 1236))
-        device.sleep(2)
+        device.sleep(1)
         device.click(sym[letter][0], sym[letter][1])
-        device.sleep(2)
+        device.sleep(1)
         device.click(rand.randint(19, 97), rand.randint(1184, 1236))
 
 

@@ -8,7 +8,7 @@ def proxy_red(device, proxy, turn):
     device.sleep(3)
     device.click(287, 1215)
     device.sleep(1)
-    device.swipe(567, 680, 36, 617)
+    device.swipe(567, 680, 36, 617,0.3)
     device.sleep(1)
     device.click(248, 1057)  # wifi
     device.sleep(1)
@@ -47,7 +47,7 @@ def proxy_red(device, proxy, turn):
     device.press("back")
     device.sleep(1)
     device.press("back")
-    device.swipe(36, 617, 567, 680)
+    device.swipe(36, 617, 567, 680,0.3)
     device.sleep(1)
     device.click(287, 1215)
     device.sleep(5)
