@@ -3,7 +3,7 @@ import keyboard as kk
 import sms
 
 
-def adidas_reg(device, user, phons, turn):
+def adidas_reg(device, user, phons, turn, model):
     device.press("home")
     device.click(93, 150)  # ADIDAS APP
     while not device(resourceId='com.adidas.app:id/requestLocationPermissionImage').exists:
@@ -23,7 +23,7 @@ def adidas_reg(device, user, phons, turn):
     print('дропы')
     device.sleep(1)
 
-    while not device(text='YEEZY BOOST 350 V2').exists:
+    while not device(text=model).exists:
         device.sleep(1)
     device.sleep(1)
     device.click(rand.randint(185, 240), rand.randint(1195, 1250))
@@ -34,7 +34,7 @@ def adidas_reg(device, user, phons, turn):
     print('дропы')
     device.sleep(1)
 
-    while not device(text='YEEZY BOOST 350 V2').exists:
+    while not device(text=model).exists:
         device.sleep(3)
     device.sleep(2)
     device.click(rand.randint(113, 550), rand.randint(672, 750))
@@ -42,7 +42,7 @@ def adidas_reg(device, user, phons, turn):
 
     device.sleep(2)
 
-    while not device(className='android.widget.Button').exists:
+    while not device(resourceId='com.adidas.app:id/adidasStatefulInternalButton').exists:
         device.sleep(1)
         # device.click(rand.randint(113, 550), rand.randint(672, 750))
         # print('Нажать на тапок')
@@ -50,13 +50,11 @@ def adidas_reg(device, user, phons, turn):
     device.click(rand.randint(50, 670), rand.randint(1130, 1220))
     print('принять участие')
 
-    device.sleep(2)
-
-    while not device(className='android.widget.Button').exists:
+    while not device(resourceId='com.adidas.app:id/btnRequirementsEnable').exists:
         device.sleep(1)
         # device.click(rand.randint(50, 670), rand.randint(1130, 1220))
         # print(' принять участие')
-    device.sleep(2)
+    device.sleep(1)
     device.click(rand.randint(40, 680), rand.randint(1110, 1210))
     print('Войди в аккаунт')
     device.sleep(2)
@@ -83,7 +81,7 @@ def adidas_reg(device, user, phons, turn):
     device.sleep(1)
     while not device(index=1, className='android.widget.LinearLayout').exists:
         device.sleep(1)
-    device.sleep(1)
+    device.sleep(2)
     device.click(rand.randint(460, 550), rand.randint(380, 420))
     print('Cтарше 14')
     while not device(className='android.widget.EditText').exists:
@@ -298,74 +296,79 @@ def adidas_reg(device, user, phons, turn):
     print('Ввод телефона НОРМ ТЕЛЕФОН С ПЕРЕАДР')
     device.sleep(2)
     device.press("back")
-    device.sleep(3)
-    while not device(className='com.adidas.app:id/adidasStatefulInternalButton', enabled='true').exists:
+    while not device(resourceId='com.adidas.app:id/adidasStatefulInternalButton', enabled='true').exists:
         device.sleep(1)
     device.sleep(1)
     device.click(rand.randint(40, 680), rand.randint(1160, 1240))
     print('Кнопка Сохранить')
-    while not device(className='com.adidas.app:id/addressText').exists:
+    while not device(resourceId='com.adidas.app:id/addressText').exists:
         device.sleep(1)
     device.sleep(1)
     device.click(rand.randint(75, 400), rand.randint(900, 1000))
     print('Выбрать адрес')
-    device.sleep(2)
 
-    while not device(className='android.widget.Button', enabled='false').exists:
+    while not device(resourceId='com.adidas.app:id/conditionsText').exists:
         device.sleep(1)
-    device.sleep(2)
+    device.sleep(1)
 
     # Добавление оплаты
-    device.click(rand.randint(480, 680), rand.randint(860, 890))
+    device.click(rand.randint(480, 680), rand.randint(860, 890)) # Добавить проверку
     print(' кнопка выбрать метод оплаты')
     device.sleep(3)
     device.click(rand.randint(70, 500), rand.randint(1175, 1230))
     print(' кнопка выбрать ВИЗА МАСТЕРКАРД МИР')
-    device.sleep(3)
+    while not device(index=3, className='android.widget.LinearLayout').exists:
+        device.sleep(1)
+    device.sleep(2)
     device.click(rand.randint(70, 650), rand.randint(305, 330))
     print(' кнопка номер карты')
-    device.sleep(3)
+    device.sleep(2)
     kk.keyboard_num("5536913992523155", device)
     print('Ввод номера карты ДОДЕЛАТЬ')
-    device.sleep(3)
+    device.sleep(2)
     device.click(rand.randint(70, 650), rand.randint(530, 550))
     print(' кнопка срок')
-    device.sleep(3)
+    device.sleep(2)
     kk.keyboard_num("06", device)
-    device.sleep(3)
+    device.sleep(1)
     kk.keyboard_num("29", device)
     print(' Ввод срока')
-    device.sleep(3)
+    device.sleep(2)
     device.press("back")
-    device.sleep(3)
+    device.sleep(2)
     device.click(rand.randint(70, 650), 625)
     print('кнопка имя на карте')
     device.sleep(3)
     kk.keyboard_eng("Denis Babkin", device)
     print('Ввод имени')
-    device.sleep(3)
+    device.sleep(2)
     device.press("back")
-    device.sleep(3)
+    device.sleep(2)
     device.click(rand.randint(70, 650), rand.randint(770, 895))
     print('кнопка CVV')
-    device.sleep(3)
+    device.sleep(2)
     kk.keyboard_num("892", device)
     print(' Ввод CVV')
-    device.sleep(3)
+    device.sleep(2)
     device.press("back")
     device.sleep(5)
     device.click(rand.randint(40, 650), rand.randint(1160, 1240))
     print('кнопка Сохранить карту')
-    device.sleep(5)
 
-    while not device(className='android.widget.Button', enabled='true'):
+    while not device(resourceId='com.adidas.app:id/conditionsText').exists:
         device.sleep(1)
-    device.sleep(5)
+    device.sleep(1)
 
     device.click(rand.randint(40, 650), rand.randint(1160, 1240))
     print('кнопка подтвердить с таймером')
-    device.sleep(5)
+
+    while not device(resourceId='com.adidas.app:id/alertDialogMessage').exists:
+        device.sleep(1)
+    device.sleep(1)
 
     device.click(rand.randint(370, 650), rand.randint(766, 850))
     print('кнопка подтвердить')
     device.sleep(7)
+    while not device(className='android.widget.Button', enabled='true').exists:
+        device.sleep(1)
+    device.sleep(2)

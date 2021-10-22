@@ -131,9 +131,9 @@ def keyboard_sym_pause(letter, device):
         device.sleep(0.1)
     else:
         device.click(rand.randint(19, 97), rand.randint(1184, 1236))
-        device.sleep(1)
+        device.sleep(0.5)
         device.click(sym[letter][0], sym[letter][1])
-        device.sleep(1)
+        device.sleep(0.5)
         device.click(rand.randint(19, 97), rand.randint(1184, 1236))
 
 
@@ -148,7 +148,7 @@ def keyboard_sym(string, device):
 
 
 def keyboard_rus(string, device):
-    device.swipe(rand.randint(211, 253), rand.randint(1192, 1232), rand.randint(470, 510), rand.randint(1192, 1232))
+    device.swipe(rand.randint(211, 253), rand.randint(1192, 1232), rand.randint(470, 510), rand.randint(1192, 1232),0.5)
     # if ifrus != 1:
     #     device.swipe(rand.randint(211, 253), rand.randint(1192, 1232), rand.randint(470, 510), rand.randint(1192, 1232))
     # device.sleep(rand.uniform(0.1, 0.3))
@@ -189,7 +189,7 @@ def keyboard_rus(string, device):
         i += 1
 
     device.sleep(rand.uniform(0.1, 0.3))
-    device.swipe(rand.randint(211, 253), rand.randint(1192, 1232), rand.randint(470, 510), rand.randint(1192, 1232))
+    device.swipe(rand.randint(211, 253), rand.randint(1192, 1232), rand.randint(470, 510), rand.randint(1192, 1232),0.5)
 
 
 def keyboard_eng(string, device):
