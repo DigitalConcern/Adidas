@@ -72,7 +72,7 @@ def adidas_reg(device, user, phons, turn):
     print('Ввод емаила')
     device.sleep(2)
     device.click(rand.randint(600, 649), rand.randint(330, 375))
-    while not device(className='android.widget.LinearLayout').exists:
+    while not device(index=1,className='android.widget.LinearLayout').exists:
         try:
             device(text="ОК").click()
             device.sleep(30)
@@ -81,7 +81,7 @@ def adidas_reg(device, user, phons, turn):
             pass
     print('Емаил ентер')
     device.sleep(1)
-    while not device(className='android.widget.LinearLayout').exists:
+    while not device(index=1,className='android.widget.LinearLayout').exists:
         device.sleep(1)
     device.click(rand.randint(460, 550), rand.randint(380, 420))
     print('Cтарше 14')
