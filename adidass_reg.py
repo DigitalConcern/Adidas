@@ -54,8 +54,8 @@ def adidas_reg(device, user, phons, turn, model):
         device.sleep(1)
         # device.click(rand.randint(50, 670), rand.randint(1130, 1220))
         # print(' принять участие')
-    device.sleep(1)
-    device.click(rand.randint(40, 680), rand.randint(1110, 1210))
+    device.sleep(2)
+    device.click(rand.randint(40, 680), rand.randint(1130, 1210))
     print('Войди в аккаунт')
     device.sleep(2)
 
@@ -82,7 +82,7 @@ def adidas_reg(device, user, phons, turn, model):
     while not device(index=1, className='android.widget.LinearLayout').exists:
         device.sleep(1)
     device.sleep(2)
-    device.click(rand.randint(460, 550), rand.randint(380, 420))
+    device.click(rand.randint(366, 480), rand.randint(360, 380))
     print('Cтарше 14')
     while not device(className='android.widget.EditText').exists:
         device.sleep(1)
