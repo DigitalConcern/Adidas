@@ -96,7 +96,7 @@ def adidas_reg(device, user, phons, turn):
     device.click(rand.randint(35, 680), rand.randint(691, 755))
     #while device(resourceId='com.adidas.app:id/formFieldGuidance').exists:
         #device.sleep(1)
-    while not device(className='com.adidas.app:id/tvRequirementsStepContent').exists:
+    while not device(resourceId='com.adidas.app:id/tvRequirementsStepContent').exists:
         device.sleep(1)
         try:
             device.press(text="ОК")
@@ -109,7 +109,7 @@ def adidas_reg(device, user, phons, turn):
     device.click(rand.randint(35, 680), rand.randint(1025, 1120))
     print('подтвердить аккаунт')
 
-    while not device(className='com.adidas.app:id/formSubtitle').exists: #Подзаголовок экрана с телефоном
+    while not device(resourceId='com.adidas.app:id/formSubtitle').exists: #Подзаголовок экрана с телефоном
         device.sleep(1)
     sms.telephone_receiver(phons)
     device.sleep(3)
@@ -118,7 +118,7 @@ def adidas_reg(device, user, phons, turn):
     device.sleep(2)
     device.click(rand.randint(600, 643), rand.randint(420, 450))
     print(' ентер телефона')
-    while device(className='com.adidas.app:id/formSubtitle').exists:
+    while device(resourceId='com.adidas.app:id/formSubtitle').exists:
         device.sleep(1)
     device.sleep(1)
     sms.code_receiver(phons)
@@ -126,7 +126,7 @@ def adidas_reg(device, user, phons, turn):
         while phons['code'] == "STATUS_WAIT_CODE":
             device.press("back")
             device.press("back")
-            while not device(className='com.adidas.app:id/formSubtitle').exists:  # Подзаголовок экрана с телефоном
+            while not device(resourceId='com.adidas.app:id/formSubtitle').exists:  # Подзаголовок экрана с телефоном
                 device.sleep(1)
             device(className='android.widget.EditText').set_text('')
             sms.telephone_receiver(phons)
@@ -136,7 +136,7 @@ def adidas_reg(device, user, phons, turn):
             device.sleep(2)
             device.click(rand.randint(600, 643), rand.randint(420, 450))
             print(' ентер телефона')
-            while device(className='com.adidas.app:id/formSubtitle').exists:
+            while device(resourceId='com.adidas.app:id/formSubtitle').exists:
                 device.sleep(1)
             device.sleep(1)
             sms.code_receiver(phons)
@@ -149,80 +149,79 @@ def adidas_reg(device, user, phons, turn):
     device.click(rand.randint(599, 650), rand.randint(280, 320))
     print(' ентер проверочного кода')
 
-    device.sleep(9)
+    while not device(resourceId='com.adidas.app:id/fittingLayout').exists:
+        device.sleep(1)
     size = rand.randint(1, 15)
     if size == 1:
         for p in range(6):
             device.click(rand.randint(163, 255), rand.randint(636, 674))
-            device.sleep(3)
+            device.sleep(1)
     if size == 2:
         for p in range(5):
             device.click(rand.randint(163, 255), rand.randint(636, 674))
-            device.sleep(3)
+            device.sleep(1)
     if size == 3:
         for p in range(4):
             device.click(rand.randint(163, 255), rand.randint(636, 674))
-            device.sleep(3)
+            device.sleep(1)
     if size == 4:
         for p in range(3):
             device.click(rand.randint(163, 255), rand.randint(636, 674))
-            device.sleep(3)
+            device.sleep(1)
     if size == 5:
         for p in range(2):
             device.click(rand.randint(163, 255), rand.randint(636, 674))
-            device.sleep(3)
+            device.sleep(1)
     if size == 6:
         for p in range(1):
             device.click(rand.randint(163, 255), rand.randint(636, 674))
-            device.sleep(3)
+            device.sleep(1)
     if size == 8:
         for p in range(1):
             device.click(rand.randint(465, 530), rand.randint(636, 674))
-            device.sleep(3)
+            device.sleep(1)
     if size == 9:
         for p in range(2):
             device.click(rand.randint(465, 530), rand.randint(636, 674))
-            device.sleep(3)
+            device.sleep(1)
     if size == 10:
         for p in range(3):
             device.click(rand.randint(465, 530), rand.randint(636, 674))
-            device.sleep(3)
+            device.sleep(1)
     if size == 11:
         for p in range(4):
             device.click(rand.randint(465, 530), rand.randint(636, 674))
-            device.sleep(3)
+            device.sleep(1)
     if size == 12:
         for p in range(5):
             device.click(rand.randint(465, 530), rand.randint(636, 674))
-            device.sleep(3)
+            device.sleep(1)
     if size == 13:
         for p in range(6):
             device.click(rand.randint(465, 530), rand.randint(636, 674))
-            device.sleep(3)
+            device.sleep(1)
     if size == 14:
         for p in range(7):
             device.click(rand.randint(465, 530), rand.randint(636, 674))
-            device.sleep(3)
+            device.sleep(1)
     if size == 15:
         for p in range(8):
             device.click(rand.randint(465, 530), rand.randint(636, 674))
-            device.sleep(3)
-    device.sleep(10)
+            device.sleep(1)
+    device.sleep(1)
     device.click(rand.randint(50, 670), rand.randint(980, 1054))
     print('продолжить с разм')
-    device.sleep(3)
 
-    while not device(className='android.widget.Button', enabled='false').exists:
+    while not device(resourceId='com.adidas.app:id/termsText').exists:
         device.sleep(1)
 
     # НАЧИНАЕТСЯ ЧЕРНЫЙ ЭКРАН
     device.click(rand.randint(120, 680), rand.randint(595, 690))
     print('адрес')
-    device.sleep(3)
 
-    while not device(className='android.widget.Button', enabled='true').exists:
+    while not device(className='com.adidas.app:id/addAddress', enabled='true').exists:
         device.sleep(1)
-    device.sleep(2)
+    device.sleep(1)
 
     device.click(rand.randint(35, 680), rand.randint(1160, 1240))
     print('Добавить адрес')
