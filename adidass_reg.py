@@ -78,10 +78,9 @@ def adidas_reg(device, user, phons, turn, model):
         except:
             pass
     print('Емаил ентер')
-    device.sleep(1)
     while not device(resourceId='com.adidas.app:id/selectableItemText').exists:
         device.sleep(1)
-    device.sleep(2)
+    device.sleep(1)
     device.click(rand.randint(366, 480), rand.randint(360, 380))
     print('Cтарше 14')
     while not device(className='android.widget.EditText').exists:
@@ -260,7 +259,7 @@ def adidas_reg(device, user, phons, turn, model):
     device.click(rand.randint(66, 650), rand.randint(855, 880))
     print('кнопка дома')
     device.sleep(3)
-    kk.keyboard_eng(user['building'], device)
+    kk.keyboard_rus(user['building'], device)
     print('Ввод дома')
     device.sleep(3)
     device.press("back")
@@ -351,13 +350,14 @@ def adidas_reg(device, user, phons, turn, model):
     print(' Ввод CVV')
     device.sleep(2)
     device.press("back")
-    device.sleep(5)
-    device.click(rand.randint(40, 650), rand.randint(1160, 1240))
+    device.sleep(6)
+    device.click(rand.randint(50, 600), rand.randint(1200, 1240))
     print('кнопка Сохранить карту')
 
-    while not device(resourceId='com.adidas.app:id/conditionsText').exists:
+    while not device(resourceId='com.adidas.app:id/conditionsText').exists: # сделать проверку на иконку оплаты
+
         device.sleep(1)
-    device.sleep(1)
+    device.sleep(3)
 
     device.click(rand.randint(40, 650), rand.randint(1160, 1240))
     print('кнопка подтвердить с таймером')
