@@ -94,44 +94,51 @@ def adidas_reg(device, user, phons, turn):
     print('Ввод пароля')
     device.sleep(1)
     device.click(rand.randint(35, 680), rand.randint(691, 755))
-    while device(resourceId='com.adidas.app:id/formFieldGuidance').exists:
+    #while device(resourceId='com.adidas.app:id/formFieldGuidance').exists:
+        #device.sleep(1)
+    while not device(className='com.adidas.app:id/tvRequirementsStepContent').exists:
         device.sleep(1)
-    try:
-        device.press(text="ОК")
-        device.sleep(30)
-        device.click(rand.randint(35, 680), rand.randint(691, 755))
-    except:
-        pass
+        try:
+            device.press(text="ОК")
+            device.sleep(30)
+            device.click(rand.randint(35, 680), rand.randint(691, 755))
+        except:
+            pass
     print(' пароль ентер')
-    while not device(className='android.widget.Button').exists:
-        device.sleep(1)
-    device.sleep(4)
+    device.sleep(2)
     device.click(rand.randint(35, 680), rand.randint(1025, 1120))
     print('подтвердить аккаунт')
-    device.sleep(2)
 
+    while not device(className='com.adidas.app:id/formSubtitle').exists: #Подзаголовок экрана с телефоном
+        device.sleep(1)
     sms.telephone_receiver(phons)
-    device.sleep(8)
+    device.sleep(3)
     kk.keyboard_num(phons['number'], device)
     print(' Ввод телефона для пруфа')
     device.sleep(2)
     device.click(rand.randint(600, 643), rand.randint(420, 450))
     print(' ентер телефона')
-    device.sleep(8)
+    while device(className='com.adidas.app:id/formSubtitle').exists:
+        device.sleep(1)
+    device.sleep(1)
     sms.code_receiver(phons)
     if phons['code'] == "STATUS_WAIT_CODE":
         while phons['code'] == "STATUS_WAIT_CODE":
             device.press("back")
             device.press("back")
+            while not device(className='com.adidas.app:id/formSubtitle').exists:  # Подзаголовок экрана с телефоном
+                device.sleep(1)
             device(className='android.widget.EditText').set_text('')
             sms.telephone_receiver(phons)
-            device.sleep(8)
+            device.sleep(3)
             kk.keyboard_num(phons['number'], device)
             print(' Ввод телефона для пруфа')
             device.sleep(2)
             device.click(rand.randint(600, 643), rand.randint(420, 450))
             print(' ентер телефона')
-            device.sleep(8)
+            while device(className='com.adidas.app:id/formSubtitle').exists:
+                device.sleep(1)
+            device.sleep(1)
             sms.code_receiver(phons)
         kk.keyboard_num(phons['code'], device)
         print(' Ввод ПРОВЕРОЧНОГО КОДА')
