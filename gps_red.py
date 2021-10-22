@@ -14,3 +14,4 @@ def gps_red(device, turn):
     device(index=2, className="android.widget.ImageView").click()
     device.sleep(5)
     device.press("home")
+    device.sleep(2)

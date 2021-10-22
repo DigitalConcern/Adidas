@@ -27,7 +27,7 @@ def adidas_ext(device):
                  0.1)  #
     device.sleep(1)
     device.click(rand.randint(40, 650), rand.randint(1140, 1220))  # выход
-    device.sleep(1)
+    device.sleep(3)
     device.press("back")  #
     device.sleep(1)
     device.press("home")

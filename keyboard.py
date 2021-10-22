@@ -125,11 +125,16 @@ num = {
 
 
 def keyboard_sym_pause(letter, device):
-    device.click(rand.randint(19, 97), rand.randint(1184, 1236))
-    device.sleep(0.01)
-    device.click(sym[letter][0], sym[letter][1])
-    device.sleep(0.01)
-    device.click(rand.randint(19, 97), rand.randint(1184, 1236))
+    if letter in list("1234567890"):
+        device.sleep(0.1)
+        device.click(sym[letter][0], sym[letter][1])
+        device.sleep(0.1)
+    else:
+        device.click(rand.randint(19, 97), rand.randint(1184, 1236))
+        device.sleep(2)
+        device.click(sym[letter][0], sym[letter][1])
+        device.sleep(2)
+        device.click(rand.randint(19, 97), rand.randint(1184, 1236))
 
 
 def keyboard_sym(string, device):
@@ -167,13 +172,19 @@ def keyboard_rus(string, device):
                     device.sleep(0.2)
                     device.click(rus['back'][0], rus['back'][1])
                     device.sleep(0.2)
-
-            if let.isupper():
-                let = let.lower()
-                device.click(rus['shift'][0], rus['shift'][1])
-                device.click(rus[let][0], rus[let][1])
+                if let.isupper():
+                    let = let.lower()
+                    device.click(rus['shift'][0], rus['shift'][1])
+                    device.click(rus[let][0], rus[let][1])
+                else:
+                    device.click(rus[let][0], rus[let][1])
             else:
-                device.click(rus[let][0], rus[let][1])
+                if let.isupper():
+                    let = let.lower()
+                    # device.click(rus['shift'][0], rus['shift'][1])
+                    device.click(rus[let][0], rus[let][1])
+                else:
+                    device.click(rus[let][0], rus[let][1])
         device.sleep(rand.uniform(0.1, 0.3))
         i += 1
 
@@ -188,15 +199,13 @@ def keyboard_eng(string, device):
         if let in list('1234567890@#$_&+-=()/*,.'):
             keyboard_sym_pause(let, device)
         else:
-            if i > 0:
-                rand_chars = ['j', 'g', 'f', 'h', 'l', 'b', 'v', 'c', 'n', 'm', 'x', 'r']
-                if rand.randint(1, 8) == 3:
-                    rand_char = rand.choice(rand_chars)
-                    device.click(eng[rand_char][0], eng[rand_char][1])
-                    device.sleep(0.2)
-                    device.click(eng['back'][0], eng['back'][1])
-                    device.sleep(0.2)
-
+            rand_chars = ['j', 'g', 'f', 'h', 'l', 'b', 'v', 'c', 'n', 'm', 'x', 'r']
+            if rand.randint(1, 8) == 3:
+                rand_char = rand.choice(rand_chars)
+                device.click(eng[rand_char][0], eng[rand_char][1])
+                device.sleep(0.2)
+                device.click(eng['back'][0], eng['back'][1])
+                device.sleep(0.2)
             if let.isupper():
                 let = let.lower()
                 device.click(eng['shift'][0], eng['shift'][1])

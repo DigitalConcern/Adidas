@@ -21,5 +21,7 @@ def telephone_receiver(p_struct):
     php_script_runner('D:/Programms/AdidasMain/SMSactivate.php')
     string_from_file = open('telephones.txt',
                             encoding='utf-8').readline()  # ф-ция вызова php файла с кодом для принятия телефона
+    while p_struct['number'] == '':
+        php_script_runner('D:/Programms/AdidasMain/SMSactivate.php')
     p_struct['id'] = string_from_file.split(' ')[0]  # и id и записи в структуру
     p_struct['number'] = '+' + string_from_file.split(' ')[1]
