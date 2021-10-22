@@ -70,7 +70,7 @@ def adidas_reg(device, user, phons, turn, model):
     print('Ввод емаила')
     device.sleep(2)
     device.click(rand.randint(600, 649), rand.randint(330, 375))
-    while not device(index=1, className='android.widget.LinearLayout').exists:
+    while not device(resourceId='com.adidas.app:id/selectableItemText').exists:
         try:
             device(text="ОК").click()
             device.sleep(30)
@@ -79,7 +79,7 @@ def adidas_reg(device, user, phons, turn, model):
             pass
     print('Емаил ентер')
     device.sleep(1)
-    while not device(index=1, className='android.widget.LinearLayout').exists:
+    while not device(resourceId='com.adidas.app:id/selectableItemText').exists:
         device.sleep(1)
     device.sleep(2)
     device.click(rand.randint(366, 480), rand.randint(360, 380))
@@ -307,7 +307,7 @@ def adidas_reg(device, user, phons, turn, model):
     device.click(rand.randint(75, 400), rand.randint(900, 1000))
     print('Выбрать адрес')
 
-    while not device(resourceId='com.adidas.app:id/conditionsText').exists:
+    while not device(resourceId='com.adidas.app:id/checkout_screen_payment_method').exists:
         device.sleep(1)
     device.sleep(1)
 
