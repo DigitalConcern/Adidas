@@ -124,6 +124,49 @@ num = {
 }
 
 
+trans = {
+    'й': 'j',
+    'ц': 'cz',
+    'у': 'u',
+    'к': 'k',
+    'е': 'e',
+    'н': 'n',
+    'г': 'g',
+    'ш': 'sh',
+    'щ': 'shh',
+    'з': 'z',
+    'х': 'kh',
+    'ф': 'f',
+    'ы': 'y',
+    'в': 'v',
+    'а': 'a',
+    'п': 'p',
+    'р': 'r',
+    'о': 'o',
+    'л': 'l',
+    'д': 'd',
+    'ж': 'zh',
+    'э': 'e',
+    'я': 'ya',
+    'ч': 'ch',
+    'с': 's',
+    'м': 'm',
+    'и': 'i',
+    'т': 't',
+    'б': 'b',
+    'ю': 'yu'
+}
+
+
+def translit(word):
+    rusword = ''
+    for let in list(word):
+        if let.isupper():
+            let = let.lower()
+        rusword += trans[let]
+    return rusword
+
+
 def keyboard_sym_pause(letter, device):
     if letter in list("1234567890"):
         device.sleep(0.1)
