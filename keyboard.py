@@ -1,42 +1,41 @@
 import uiautomator2 as u2
 import random as rand
 
-# СДЕЛАТЬ ПРОВЕРКУ НА КОРРЕКТНОСТЬ ВВОДА
 
 d = u2.connect()
 eng = {
-    'q': [rand.randint(14, 64), rand.randint(878, 935)],
-    'w': [rand.randint(87, 136), rand.randint(878, 935)],
-    'e': [rand.randint(157, 206), rand.randint(878, 935)],
-    'r': [rand.randint(228, 277), rand.randint(878, 935)],
-    't': [rand.randint(300, 348), rand.randint(878, 935)],
-    'y': [rand.randint(371, 420), rand.randint(878, 935)],
-    'u': [rand.randint(443, 490), rand.randint(878, 935)],
-    'i': [rand.randint(515, 560), rand.randint(878, 935)],
-    'o': [rand.randint(585, 631), rand.randint(878, 935)],
-    'p': [rand.randint(655, 704), rand.randint(878, 935)],
+    'q': [rand.randint(20, 55),   rand.randint(900, 955)],
+    'w': [rand.randint(90, 125),  rand.randint(900, 955)],
+    'e': [rand.randint(160, 200), rand.randint(900, 955)],
+    'r': [rand.randint(232, 268), rand.randint(900, 955)],
+    't': [rand.randint(308, 337), rand.randint(900, 955)],
+    'y': [rand.randint(375, 412), rand.randint(900, 955)],
+    'u': [rand.randint(446, 479), rand.randint(900, 955)],
+    'i': [rand.randint(519, 560), rand.randint(900, 955)],
+    'o': [rand.randint(585, 626), rand.randint(900, 955)],
+    'p': [rand.randint(655, 700), rand.randint(900, 955)],
 
-    'a': [rand.randint(52, 94), rand.randint(980, 1036)],
-    's': [rand.randint(123, 170), rand.randint(980, 1036)],
-    'd': [rand.randint(194, 238), rand.randint(980, 1036)],
-    'f': [rand.randint(265, 310), rand.randint(980, 1036)],
-    'g': [rand.randint(336, 382), rand.randint(980, 1036)],
-    'h': [rand.randint(407, 454), rand.randint(980, 1036)],
-    'j': [rand.randint(478, 526), rand.randint(980, 1036)],
-    'k': [rand.randint(549, 598), rand.randint(980, 1036)],
-    'l': [rand.randint(620, 668), rand.randint(980, 1036)],
+    'a': [rand.randint(52, 94), rand.randint(1000, 1055)],
+    's': [rand.randint(123, 165), rand.randint(1000, 1055)],
+    'd': [rand.randint(194, 235), rand.randint(1000, 1055)],
+    'f': [rand.randint(265, 305), rand.randint(1000, 1055)],
+    'g': [rand.randint(336, 378), rand.randint(1000, 1055)],
+    'h': [rand.randint(407, 448), rand.randint(1000, 1055)],
+    'j': [rand.randint(478, 515), rand.randint(1000, 1055)],
+    'k': [rand.randint(549, 588), rand.randint(1000, 1055)],
+    'l': [rand.randint(622, 663), rand.randint(1000, 1055)],
 
-    'z': [rand.randint(124, 171), rand.randint(1083, 1137)],
-    'x': [rand.randint(195, 242), rand.randint(1083, 1137)],
-    'c': [rand.randint(266, 313), rand.randint(1083, 1137)],
-    'v': [rand.randint(337, 384), rand.randint(1083, 1137)],
-    'b': [rand.randint(408, 455), rand.randint(1083, 1137)],
-    'n': [rand.randint(479, 526), rand.randint(1083, 1137)],
-    'm': [rand.randint(550, 597), rand.randint(1083, 1137)],
+    'z': [rand.randint(124, 171), rand.randint(1092, 1153)],
+    'x': [rand.randint(195, 236), rand.randint(1092, 1153)],
+    'c': [rand.randint(268, 306), rand.randint(1092, 1153)],
+    'v': [rand.randint(337, 374), rand.randint(1092, 1153)],
+    'b': [rand.randint(410, 448), rand.randint(1092, 1153)],
+    'n': [rand.randint(479, 523), rand.randint(1092, 1153)],
+    'm': [rand.randint(550, 594), rand.randint(1092, 1153)],
 
-    'back': [rand.randint(620, 700), rand.randint(1083, 1138)],
-    'shift': [rand.randint(15, 100), rand.randint(1083, 1138)],
-    ' ': [rand.randint(196, 524), rand.randint(1183, 1241)]
+    'back': [rand.randint(625, 700), rand.randint(1092, 1153)],
+    'shift': [rand.randint(19, 88), rand.randint(1092, 1153)],
+    ' ': [rand.randint(264, 512), rand.randint(1193, 1245)]
 }
 
 rus = {
@@ -81,16 +80,16 @@ rus = {
 }
 
 sym = {
-    '1': [rand.randint(17, 60), rand.randint(789, 829)],
-    '2': [rand.randint(88, 131), rand.randint(789, 829)],
-    '3': [rand.randint(159, 202), rand.randint(789, 829)],
-    '4': [rand.randint(230, 273), rand.randint(789, 829)],
-    '5': [rand.randint(301, 344), rand.randint(789, 829)],
-    '6': [rand.randint(372, 415), rand.randint(789, 829)],
-    '7': [rand.randint(443, 486), rand.randint(789, 829)],
-    '8': [rand.randint(514, 557), rand.randint(789, 829)],
-    '9': [rand.randint(585, 628), rand.randint(789, 829)],
-    '0': [rand.randint(656, 699), rand.randint(789, 829)],
+    '1': [rand.randint(20, 55),   rand.randint(810, 863)],
+    '2': [rand.randint(90, 125),  rand.randint(810, 863)],
+    '3': [rand.randint(160, 200), rand.randint(810, 863)],
+    '4': [rand.randint(232, 268), rand.randint(810, 863)],
+    '5': [rand.randint(308, 337), rand.randint(810, 863)],
+    '6': [rand.randint(375, 412), rand.randint(810, 863)],
+    '7': [rand.randint(446, 479), rand.randint(810, 863)],
+    '8': [rand.randint(519, 560), rand.randint(810, 863)],
+    '9': [rand.randint(585, 626), rand.randint(810, 863)],
+    '0': [rand.randint(655, 700), rand.randint(810, 863)],
 
     '@': [rand.randint(87, 136), rand.randint(982, 1034)],
     '#': [rand.randint(161, 204), rand.randint(982, 1034)],
@@ -122,7 +121,6 @@ num = {
     '0': [rand.randint(200, 330), rand.randint(1155, 1235)],
     '+': [rand.randint(200, 330), rand.randint(1155, 1235)]
 }
-
 
 trans = {
     'й': 'j',
@@ -168,102 +166,71 @@ def translit(word):
 
 
 def keyboard_sym_pause(letter, device):
-    if letter in list("1234567890"):
-        device.sleep(0.1)
-        device.click(sym[letter][0], sym[letter][1])
-        device.sleep(0.1)
-    else:
-        device.click(rand.randint(19, 97), rand.randint(1184, 1236))
-        device.sleep(0.5)
-        device.click(sym[letter][0], sym[letter][1])
-        device.sleep(0.5)
-        device.click(rand.randint(19, 97), rand.randint(1184, 1236))
+    device.click(rand.randint(17, 97), rand.randint(1105, 1144))
+    device.sleep(0.01)
+    device.click(sym[letter][0], sym[letter][1])
+    device.sleep(0.01)
+    device.click(rand.randint(17, 97), rand.randint(1105, 1144))
 
 
 def keyboard_sym(string, device):
-    device.click(rand.randint(19, 97), rand.randint(1184, 1236))
+    device.click(rand.randint(17, 97), rand.randint(1105, 1144))
     device.sleep(0.1)
     lets = list(string)
     for let in lets:
         device.click(sym[let][0], sym[let][1])
     device.sleep(0.1)
-    device.click(rand.randint(19, 97), rand.randint(1184, 1236))
+    device.click(rand.randint(17, 97), rand.randint(1105, 1144))
 
 
 def keyboard_rus(string, device):
-    device.swipe(rand.randint(211, 253), rand.randint(1192, 1232), rand.randint(470, 510), rand.randint(1192, 1232),0.5)
-    # if ifrus != 1:
-    #     device.swipe(rand.randint(211, 253), rand.randint(1192, 1232), rand.randint(470, 510), rand.randint(1192, 1232))
-    # device.sleep(rand.uniform(0.1, 0.3))
-    # if ifshift != 0:
-    #     device.sleep(1)
-    #     device.click(rus['shift'][0], rus['shift'][1])
-    #     device.sleep(1)
-    #     device.click(rus['shift'][0], rus['shift'][1])
+    device.click(rand.randint(189, 235), rand.randint(1105, 1144))
+    device.sleep(1)
+
     lets = list(string)
-    # first_letter = 1
-    i = 0
     for let in lets:
         if let in list('1234567890@#$_&+-=()/*,.'):
             keyboard_sym_pause(let, device)
         else:
-            if i > 0:
-                rand_chars = ['а', 'п', 'р', 'о', 'т', 'и', 'м', 'ь', 'г', 'ш', 'к', 'в']
-                if rand.randint(1, 8) == 3:
-                    rand_char = rand.choice(rand_chars)
-                    device.click(rus[rand_char][0], rus[rand_char][1])
-                    device.sleep(0.2)
-                    device.click(rus['back'][0], rus['back'][1])
-                    device.sleep(0.2)
-                if let.isupper():
-                    let = let.lower()
-                    device.click(rus['shift'][0], rus['shift'][1])
-                    device.click(rus[let][0], rus[let][1])
-                else:
-                    device.click(rus[let][0], rus[let][1])
-            else:
-                if let.isupper():
-                    let = let.lower()
-                    # device.click(rus['shift'][0], rus['shift'][1])
-                    device.click(rus[let][0], rus[let][1])
-                else:
-                    device.click(rus[let][0], rus[let][1])
-        device.sleep(rand.uniform(0.1, 0.3))
-        i += 1
+            rand_chars = ['а', 'п', 'р', 'о', 'т', 'и', 'м', 'ь', 'г', 'ш', 'к', 'в']
+            if rand.randint(1, 8) == 3:
+                device.click(rus[rand.choice(rand_chars)][0], rus[rand.choice(rand_chars)][1])
+                device.sleep(0.2)
+                device.click(rus['back'][0], rus['back'][1])
+                device.sleep(0.2)
 
-    device.sleep(rand.uniform(0.1, 0.3))
-    device.swipe(rand.randint(211, 253), rand.randint(1192, 1232), rand.randint(470, 510), rand.randint(1192, 1232),0.5)
+            if let.isupper():
+                let = let.lower()
+                device.click(rus['shift'][0], rus['shift'][1])
+                device.click(rus[let][0], rus[let][1])
+            else:
+                device.click(rus[let][0], rus[let][1])
+        device.sleep(0.3)
+
+    device.sleep(1)
+    device.click(rand.randint(189, 235), rand.randint(1105, 1144))
 
 
 def keyboard_eng(string, device):
     lets = list(string)
-    i = 0
     for let in lets:
         if let in list('1234567890@#$_&+-=()/*,.'):
             keyboard_sym_pause(let, device)
         else:
             rand_chars = ['j', 'g', 'f', 'h', 'l', 'b', 'v', 'c', 'n', 'm', 'x', 'r']
             if rand.randint(1, 8) == 3:
-                rand_char = rand.choice(rand_chars)
-                device.click(eng[rand_char][0], eng[rand_char][1])
+                device.click(eng[rand.choice(rand_chars)][0], eng[rand.choice(rand_chars)][1])
                 device.sleep(0.2)
                 device.click(eng['back'][0], eng['back'][1])
                 device.sleep(0.2)
+
             if let.isupper():
                 let = let.lower()
                 device.click(eng['shift'][0], eng['shift'][1])
                 device.click(eng[let][0], eng[let][1])
             else:
                 device.click(eng[let][0], eng[let][1])
-        device.sleep(rand.uniform(0.1, 0.3))
-        i += 1
+        device.sleep(0.3)
 
 
-def keyboard_num(string, device):
-    lets = list(string)
-    for let in lets:
-        if let != '+':
-            device.click(num[let][0], num[let][1])
-        else:
-            device.long_click(num[let][0], num[let][1])
-    device.sleep(rand.uniform(0.1, 0.3))
+keyboard_eng(translit('кринжанул'), d)
