@@ -47,6 +47,7 @@ def proxy_red(device, proxy, turn):
     device.press("back")
     device.sleep(1)
     device.press("back")
+    device.sleep(1)
     device.swipe(36, 617, 567, 680,0.3)
     device.sleep(1)
     device.click(287, 1215)
