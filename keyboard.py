@@ -5,8 +5,8 @@ import random as rand
 
 # d = u2.connect()
 eng = {
-    'q': [rand.randint(20, 55),   rand.randint(900, 955)],
-    'w': [rand.randint(90, 125),  rand.randint(900, 955)],
+    'q': [rand.randint(20, 55), rand.randint(900, 955)],
+    'w': [rand.randint(90, 125), rand.randint(900, 955)],
     'e': [rand.randint(160, 200), rand.randint(900, 955)],
     'r': [rand.randint(232, 268), rand.randint(900, 955)],
     't': [rand.randint(308, 337), rand.randint(900, 955)],
@@ -41,8 +41,8 @@ eng = {
 }
 
 rus = {
-    'й': [rand.randint(20,   51), rand.randint(905, 950)],
-    'ц': [rand.randint(85,  111),  rand.randint(905, 950)],
+    'й': [rand.randint(20, 51), rand.randint(905, 950)],
+    'ц': [rand.randint(85, 111), rand.randint(905, 950)],
     'у': [rand.randint(145, 178), rand.randint(905, 950)],
     'к': [rand.randint(212, 245), rand.randint(905, 950)],
     'е': [rand.randint(277, 308), rand.randint(905, 950)],
@@ -54,8 +54,8 @@ rus = {
     'з': [rand.randint(600, 633), rand.randint(905, 950)],
     'х': [rand.randint(670, 697), rand.randint(905, 950)],
 
-    'ф': [rand.randint(20,   51), rand.randint(1000, 1055)],
-    'ы': [rand.randint(85,  111), rand.randint(1000, 1055)],
+    'ф': [rand.randint(20, 51), rand.randint(1000, 1055)],
+    'ы': [rand.randint(85, 111), rand.randint(1000, 1055)],
     'в': [rand.randint(145, 178), rand.randint(1000, 1055)],
     'а': [rand.randint(212, 245), rand.randint(1000, 1055)],
     'п': [rand.randint(277, 308), rand.randint(1000, 1055)],
@@ -83,8 +83,8 @@ rus = {
 }
 
 sym = {
-    '1': [rand.randint(20, 55),   rand.randint(789, 829)],
-    '2': [rand.randint(90, 125),  rand.randint(789, 829)],
+    '1': [rand.randint(20, 55), rand.randint(789, 829)],
+    '2': [rand.randint(90, 125), rand.randint(789, 829)],
     '3': [rand.randint(160, 200), rand.randint(789, 829)],
     '4': [rand.randint(232, 268), rand.randint(789, 829)],
     '5': [rand.randint(308, 337), rand.randint(789, 829)],
@@ -95,17 +95,17 @@ sym = {
     '0': [rand.randint(655, 700), rand.randint(789, 829)],
 
     '@': [rand.randint(21, 57), rand.randint(943, 1001)],
-#     '#': [rand.randint(161, 204), rand.randint(982, 1034)],
-#     '$': [rand.randint(232, 274), rand.randint(982, 1034)],
-#     '_': [rand.randint(376, 417), rand.randint(880, 927)],
-#     '&': [rand.randint(446, 491), rand.randint(982, 1034)],
+    #     '#': [rand.randint(161, 204), rand.randint(982, 1034)],
+    #     '$': [rand.randint(232, 274), rand.randint(982, 1034)],
+    #     '_': [rand.randint(376, 417), rand.randint(880, 927)],
+    #     '&': [rand.randint(446, 491), rand.randint(982, 1034)],
     '-': [rand.randint(377, 408), rand.randint(1001, 1050)],
     '+': [rand.randint(445, 480), rand.randint(1001, 1050)],
-#     '(': [rand.randint(590, 627), rand.randint(982, 1034)],
-#     ')': [rand.randint(657, 697), rand.randint(982, 1034)],
-#     '/': [rand.randint(302, 340), rand.randint(982, 1034)],
-#     '.': [rand.randint(552, 590), rand.randint(1187, 1237)]
-#     ',': [rand.randint(482, 525), rand.randint(1083, 1133)],
+    #     '(': [rand.randint(590, 627), rand.randint(982, 1034)],
+    #     ')': [rand.randint(657, 697), rand.randint(982, 1034)],
+    #     '/': [rand.randint(302, 340), rand.randint(982, 1034)],
+    #     '.': [rand.randint(552, 590), rand.randint(1187, 1237)]
+    #     ',': [rand.randint(482, 525), rand.randint(1083, 1133)],
 }
 
 num = {
@@ -122,9 +122,8 @@ num = {
     '9': [rand.randint(380, 519), rand.randint(1100, 1150)],
 
     '0': [rand.randint(202, 350), rand.randint(1196, 1250)],
-    '+': [rand.randint(202, 350), rand.randint(1196, 1250 )]
+    '+': [rand.randint(202, 350), rand.randint(1196, 1250)]
 }
-
 
 trans = {
     'й': 'j',
@@ -179,11 +178,16 @@ def keyboard_sym_pause(letter, device):
         device.click(sym[letter][0], sym[letter][1])
         device.sleep(0.1)
     else:
-        device.click(rand.randint(25, 91), rand.randint(1155, 1235))
-        device.sleep(0.5)
-        device.click(sym[letter][0], sym[letter][1])
-        device.sleep(0.5)
-        device.click(rand.randint(25, 91), rand.randint(1155, 1235))
+        if letter == "+":
+            device.sleep(0.1)
+            device.long_click(sym[letter][0], sym[letter][1])
+            device.sleep(0.1)
+        else:
+            device.click(rand.randint(25, 91), rand.randint(1155, 1235))
+            device.sleep(0.5)
+            device.click(sym[letter][0], sym[letter][1])
+            device.sleep(0.5)
+            device.click(rand.randint(25, 91), rand.randint(1155, 1235))
 
 
 def keyboard_sym(string, device):
@@ -275,7 +279,6 @@ def keyboard_num(string, device):
         device.click(num[let][0], num[let][1])
         device.sleep(rand.uniform(0.01, 0.1))
 
-
 # keyboard_eng(translit('На дворе октябрь. '
 #              'Уже убрали с полей картофель. '
 #              'На огородах срезают капусту. '
@@ -288,5 +291,3 @@ def keyboard_num(string, device):
 #              'В комнатах потеют окошки. '), d)
 
 # keyboard_num('+79162548685', d)
-
-
