@@ -103,6 +103,7 @@ def adidas_reg(device, user, phons, turn, model):
             device.click(rand.randint(35, 680), rand.randint(691, 755))
         except:
             pass
+    device.sleep(1)
     print(' пароль ентер')
     device.sleep(2)
     device.click(rand.randint(35, 680), rand.randint(1025, 1120))
@@ -150,64 +151,69 @@ def adidas_reg(device, user, phons, turn, model):
     device.sleep(2)
     device.click(rand.randint(599, 650), rand.randint(280, 320))
     print(' ентер проверочного кода')
-
+    ass = 0
     while not device(resourceId='com.adidas.app:id/fittingLayout').exists:
         device.sleep(1)
-    #device.sleep(1)
-    #size = rand.randint(1, 15)
-    #if size == 1:
+        if (ass % 10) == 0:
+            print("Prepare for full restart")
+        ass = ass + 1
+        if ass == 120 and device(className='android.widget.Button', enabled='true').exists:
+            return 0
+    # device.sleep(1)
+    # size = rand.randint(1, 15)
+    # if size == 1:
     #    for p in range(6):
     #        device.click(rand.randint(163, 255), rand.randint(636, 674))
     #        device.sleep(1)
-    #if size == 2:
+    # if size == 2:
     #    for p in range(5):
     #        device.click(rand.randint(163, 255), rand.randint(636, 674))
     #        device.sleep(1)
-    #if size == 3:
+    # if size == 3:
     #    for p in range(4):
     #        device.click(rand.randint(163, 255), rand.randint(636, 674))
     #        device.sleep(1)
-    #if size == 4:
+    # if size == 4:
     #    for p in range(3):
     #       device.click(rand.randint(163, 255), rand.randint(636, 674))
     #       device.sleep(1)
-    #if size == 5:
+    # if size == 5:
     #    for p in range(2):
     #        device.click(rand.randint(163, 255), rand.randint(636, 674))
     #        device.sleep(1)
-    #if size == 6:
+    # if size == 6:
     #    for p in range(1):
     #        device.click(rand.randint(163, 255), rand.randint(636, 674))
     #        device.sleep(1)
-    #if size == 8:
+    # if size == 8:
     #    for p in range(1):
     #        device.click(rand.randint(465, 530), rand.randint(636, 674))
     #        device.sleep(1)
-    #if size == 9:
+    # if size == 9:
     #    for p in range(2):
     #        device.click(rand.randint(465, 530), rand.randint(636, 674))
     #        device.sleep(1)
-    #if size == 10:
+    # if size == 10:
     #    for p in range(3):
     #        device.click(rand.randint(465, 530), rand.randint(636, 674))
     #        device.sleep(1)
-    #if size == 11:
+    # if size == 11:
     #    for p in range(4):
     #        device.click(rand.randint(465, 530), rand.randint(636, 674))
     #        device.sleep(1)
-    #if size == 12:
+    # if size == 12:
     #    for p in range(5):
     #        device.click(rand.randint(465, 530), rand.randint(636, 674))
     #        device.sleep(1)
-    #if size == 13:
+    # if size == 13:
     #    for p in range(6):
     #        device.click(rand.randint(465, 530), rand.randint(636, 674))
     #        device.sleep(1)
-    #if size == 14:
+    # if size == 14:
     #    for p in range(7):
     #        device.click(rand.randint(465, 530), rand.randint(636, 674))
     #        device.sleep(1)
-    #if size == 15:
+    # if size == 15:
     #    for p in range(8):
     #        device.click(rand.randint(465, 530), rand.randint(636, 674))
     #        device.sleep(1)
@@ -313,7 +319,7 @@ def adidas_reg(device, user, phons, turn, model):
     device.sleep(1)
 
     # Добавление оплаты
-    device.click(rand.randint(480, 680), rand.randint(860, 890)) # Добавить проверку
+    device.click(rand.randint(480, 680), rand.randint(860, 890))  # Добавить проверку
     print(' кнопка выбрать метод оплаты')
     while not device(resourceId='com.adidas.app:id/addCardRoot').exists:
         device.sleep(1)
@@ -340,7 +346,7 @@ def adidas_reg(device, user, phons, turn, model):
     device.click(rand.randint(70, 600), rand.randint(655, 680))
     print('кнопка имя на карте')
     device.sleep(3)
-    kk.keyboard_eng(kk.translit(user['name'])+' '+kk.translit(user['surname']), device)
+    kk.keyboard_eng(kk.translit(user['name']) + ' ' + kk.translit(user['surname']), device)
     print('Ввод имени')
     device.sleep(2)
     device.press("back")
@@ -353,12 +359,14 @@ def adidas_reg(device, user, phons, turn, model):
     device.sleep(2)
     device.press("back")
     device.sleep(2)
-    device.swipe(rand.randint(70, 600), rand.randint(960, 1100),rand.randint(70, 600), rand.randint(32, 300))
+    device.swipe(rand.randint(70, 600), rand.randint(960, 1100), rand.randint(70, 600), rand.randint(32, 300))
     device.sleep(2)
     device.click(rand.randint(70, 600), rand.randint(1235, 1240))
     print('кнопка Сохранить карту')
     device.sleep(2)
-    while not device(resourceId='com.adidas.app:id/conditionsText').exists and not device(resourceId='com.adidas.app:id/adidasStatefulInternalButton', enabled='true').exists: # сделать проверку на иконку оплаты
+    while not device(resourceId='com.adidas.app:id/conditionsText').exists and not device(
+            resourceId='com.adidas.app:id/adidasStatefulInternalButton',
+            enabled='true').exists:  # сделать проверку на иконку оплаты
         device.sleep(1)
     device.sleep(2)
 
