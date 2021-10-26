@@ -101,5 +101,6 @@ def data(posts, addresses, fullnames, telephones, cards):
     addresses.append(true_address)
     fullnames.append(true_fullname)
     cards.append(card_info)
+    telephones.append(true_phn)
 
     return user

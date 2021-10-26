@@ -151,64 +151,64 @@ def adidas_reg(device, user, phons, turn, model):
 
     while not device(resourceId='com.adidas.app:id/fittingLayout').exists:
         device.sleep(1)
-    device.sleep(1)
-    size = rand.randint(1, 15)
-    if size == 1:
-        for p in range(6):
-            device.click(rand.randint(163, 255), rand.randint(636, 674))
-            device.sleep(1)
-    if size == 2:
-        for p in range(5):
-            device.click(rand.randint(163, 255), rand.randint(636, 674))
-            device.sleep(1)
-    if size == 3:
-        for p in range(4):
-            device.click(rand.randint(163, 255), rand.randint(636, 674))
-            device.sleep(1)
-    if size == 4:
-        for p in range(3):
-            device.click(rand.randint(163, 255), rand.randint(636, 674))
-            device.sleep(1)
-    if size == 5:
-        for p in range(2):
-            device.click(rand.randint(163, 255), rand.randint(636, 674))
-            device.sleep(1)
-    if size == 6:
-        for p in range(1):
-            device.click(rand.randint(163, 255), rand.randint(636, 674))
-            device.sleep(1)
-    if size == 8:
-        for p in range(1):
-            device.click(rand.randint(465, 530), rand.randint(636, 674))
-            device.sleep(1)
-    if size == 9:
-        for p in range(2):
-            device.click(rand.randint(465, 530), rand.randint(636, 674))
-            device.sleep(1)
-    if size == 10:
-        for p in range(3):
-            device.click(rand.randint(465, 530), rand.randint(636, 674))
-            device.sleep(1)
-    if size == 11:
-        for p in range(4):
-            device.click(rand.randint(465, 530), rand.randint(636, 674))
-            device.sleep(1)
-    if size == 12:
-        for p in range(5):
-            device.click(rand.randint(465, 530), rand.randint(636, 674))
-            device.sleep(1)
-    if size == 13:
-        for p in range(6):
-            device.click(rand.randint(465, 530), rand.randint(636, 674))
-            device.sleep(1)
-    if size == 14:
-        for p in range(7):
-            device.click(rand.randint(465, 530), rand.randint(636, 674))
-            device.sleep(1)
-    if size == 15:
-        for p in range(8):
-            device.click(rand.randint(465, 530), rand.randint(636, 674))
-            device.sleep(1)
+    #device.sleep(1)
+    #size = rand.randint(1, 15)
+    #if size == 1:
+    #    for p in range(6):
+    #        device.click(rand.randint(163, 255), rand.randint(636, 674))
+    #        device.sleep(1)
+    #if size == 2:
+    #    for p in range(5):
+    #        device.click(rand.randint(163, 255), rand.randint(636, 674))
+    #        device.sleep(1)
+    #if size == 3:
+    #    for p in range(4):
+    #        device.click(rand.randint(163, 255), rand.randint(636, 674))
+    #        device.sleep(1)
+    #if size == 4:
+    #    for p in range(3):
+    #       device.click(rand.randint(163, 255), rand.randint(636, 674))
+    #       device.sleep(1)
+    #if size == 5:
+    #    for p in range(2):
+    #        device.click(rand.randint(163, 255), rand.randint(636, 674))
+    #        device.sleep(1)
+    #if size == 6:
+    #    for p in range(1):
+    #        device.click(rand.randint(163, 255), rand.randint(636, 674))
+    #        device.sleep(1)
+    #if size == 8:
+    #    for p in range(1):
+    #        device.click(rand.randint(465, 530), rand.randint(636, 674))
+    #        device.sleep(1)
+    #if size == 9:
+    #    for p in range(2):
+    #        device.click(rand.randint(465, 530), rand.randint(636, 674))
+    #        device.sleep(1)
+    #if size == 10:
+    #    for p in range(3):
+    #        device.click(rand.randint(465, 530), rand.randint(636, 674))
+    #        device.sleep(1)
+    #if size == 11:
+    #    for p in range(4):
+    #        device.click(rand.randint(465, 530), rand.randint(636, 674))
+    #        device.sleep(1)
+    #if size == 12:
+    #    for p in range(5):
+    #        device.click(rand.randint(465, 530), rand.randint(636, 674))
+    #        device.sleep(1)
+    #if size == 13:
+    #    for p in range(6):
+    #        device.click(rand.randint(465, 530), rand.randint(636, 674))
+    #        device.sleep(1)
+    #if size == 14:
+    #    for p in range(7):
+    #        device.click(rand.randint(465, 530), rand.randint(636, 674))
+    #        device.sleep(1)
+    #if size == 15:
+    #    for p in range(8):
+    #        device.click(rand.randint(465, 530), rand.randint(636, 674))
+    #        device.sleep(1)
     device.sleep(1)
     device.click(rand.randint(50, 670), rand.randint(980, 1054))
     print('продолжить с разм')
