@@ -14,7 +14,7 @@ def cash_wipe(device):
     while not device(text="adidas").exists:
         device.swipe(350, 1200, 350, 1000, 0.05)
     device(text="adidas").click()
-    while device(text="Загрузка...").exists or device(text="Очистить данные", enabled=0).exists:
+    while device(text="Вычисление...").exists or device(text="Очистить данные", enabled=0).exists:
         device.sleep(1)
     device.sleep(1)
     device(text="Очистить данные").click()

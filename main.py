@@ -6,7 +6,7 @@ import proxy_red as pp
 import adidass_reg as aa
 import adidas_ext as ee
 
-shoe = 'YEEZY BOOST 350 V2'
+shoe = 'YEEZY 500'
 
 plist = []
 posts = []
@@ -24,8 +24,8 @@ phone = {
 
 file = open('UsListLog.txt', 'w+')
 for turn in range(ACCOUNTS):
-    ee.adidas_ext(d)
-    user = dd.data(posts, addresses, fullnames, phone, cards)
+    #ee.adidas_ext(d)
+    user = dd.data(posts, addresses, fullnames, telephones, cards)
     file.write(str(user) + '\n')
     print(turn, " ", user)
     prox_usr = dd.proxy(plist)
