@@ -11,7 +11,7 @@ def adidas_reg(device, user, phons, turn, model):
     device.sleep(1)
     device.click(rand.randint(190, 500), rand.randint(1150, 1215))
     print('Геоданные')
-    device.sleep(2)
+    device.sleep(3)
     device.click(rand.randint(113, 550), rand.randint(672, 750))
     print('Мужская одежда')
     device.sleep(6)
@@ -72,7 +72,7 @@ def adidas_reg(device, user, phons, turn, model):
     device.click(rand.randint(600, 649), rand.randint(330, 375))
     while not device(resourceId='com.adidas.app:id/selectableItemText').exists:
         try:
-            device(text="ОК").click()
+            device(text="OK").click()
             device.sleep(30)
             device.click(rand.randint(600, 649), rand.randint(330, 375))
         except:
@@ -98,7 +98,7 @@ def adidas_reg(device, user, phons, turn, model):
     while not device(resourceId='com.adidas.app:id/tvRequirementsStepContent').exists:
         device.sleep(1)
         try:
-            device.press(text="ОК")
+            device(text="OK").click()
             device.sleep(30)
             device.click(rand.randint(35, 680), rand.randint(691, 755))
         except:
@@ -131,6 +131,8 @@ def adidas_reg(device, user, phons, turn, model):
             device(className='android.widget.EditText').set_text('')
             sms.telephone_receiver(phons)
             device.sleep(3)
+            device.click(rand.randint(75, 600), rand.randint(420, 450))
+            device.sleep(1)
             kk.keyboard_num(phons['number'], device)
             print(' Ввод телефона для пруфа')
             device.sleep(2)
@@ -348,6 +350,8 @@ def adidas_reg(device, user, phons, turn, model):
     device.sleep(2)
     kk.keyboard_num(user['CVV'], device)
     print(' Ввод CVV')
+    device.sleep(2)
+    device.press("back")
     device.sleep(2)
     device.swipe(rand.randint(70, 600), rand.randint(960, 1100),rand.randint(70, 600), rand.randint(32, 300))
     device.sleep(2)
