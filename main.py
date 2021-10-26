@@ -5,6 +5,7 @@ import gps_red as gps
 import proxy_red as pp
 import adidass_reg as aa
 import adidas_ext as ee
+import keyboard as kk
 
 shoe = 'YEEZY 500'
 
@@ -24,7 +25,9 @@ phone = {
 
 file = open('UsListLog.txt', 'w+')
 for turn in range(ACCOUNTS):
-    #ee.adidas_ext(d)
+    kk.keyboard_eng("qwertyuiopasdfghjklzxcvbnm 1234567890 denis@abn-mail.xyz denis@abn-mail.xyz ",d)
+    kk.keyboard_rus("йцукенгшщзхфывапролджэячсмитьбю 1234567890 д2к5 ", d)
+    ee.adidas_ext(d)
     user = dd.data(posts, addresses, fullnames, telephones, cards)
     file.write(str(user) + '\n')
     print(turn, " ", user)

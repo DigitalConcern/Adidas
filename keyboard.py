@@ -178,36 +178,32 @@ def keyboard_sym_pause(letter, device):
         device.click(sym[letter][0], sym[letter][1])
         device.sleep(0.1)
     else:
-        if letter == "+":
-            device.sleep(0.1)
-            device.long_click(sym[letter][0], sym[letter][1])
-            device.sleep(0.1)
-        else:
-            device.click(rand.randint(25, 91), rand.randint(1155, 1235))
-            device.sleep(0.5)
-            device.click(sym[letter][0], sym[letter][1])
-            device.sleep(0.5)
-            device.click(rand.randint(25, 91), rand.randint(1155, 1235))
+        device.click(rand.randint(21, 92), rand.randint(1200, 1260))
+        device.sleep(0.5)
+        device.click(sym[letter][0], sym[letter][1])
+        device.sleep(0.5)
+        device.click(rand.randint(21, 92), rand.randint(1200, 1260))
 
 
 def keyboard_sym(string, device):
-    device.click(rand.randint(25, 91), rand.randint(1155, 1235))
+    device.click(rand.randint(21, 92), rand.randint(1200, 1260))
     device.sleep(0.1)
     lets = list(string)
     for let in lets:
         device.click(sym[let][0], sym[let][1])
         device.sleep(rand.uniform(0.01, 0.1))
     device.sleep(0.1)
-    device.click(rand.randint(17, 97), rand.randint(1155, 1235))
+    device.click(rand.randint(21, 92), rand.randint(1200, 1260))
 
 
 def keyboard_rus(string, device):
+    device.sleep(1)
     device.click(rand.randint(195, 235), rand.randint(1195, 1245))
     device.sleep(1)
     lets = list(string)
     i = 0
     for let in lets:
-        if let in list('1234567890@#$_&+-=()/*,'):
+        if let in list('1234567890#$_&+-=()/*,'):
             keyboard_sym_pause(let, device)
         else:
             if i > 0:
@@ -238,13 +234,14 @@ def keyboard_rus(string, device):
     device.sleep(rand.uniform(0.01, 0.1))
     device.sleep(1)
     device.click(rand.randint(195, 235), rand.randint(1195, 1245))
+    device.sleep(1)
 
 
 def keyboard_eng(string, device):
     lets = list(string)
     i = 0
     for let in lets:
-        if let in list('1234567890@#$_&+-=()/*,'):
+        if let in list('1234567890#@$_&+-=()/*,'):
             keyboard_sym_pause(let, device)
         else:
             if i > 0:
@@ -276,8 +273,14 @@ def keyboard_eng(string, device):
 def keyboard_num(string, device):
     lets = list(string)
     for let in lets:
-        device.click(num[let][0], num[let][1])
-        device.sleep(rand.uniform(0.01, 0.1))
+        if let == "+":
+            device.sleep(rand.uniform(0.01, 0.1))
+            device.long_click(sym[let][0], sym[let][1])
+            device.sleep(rand.uniform(0.01, 0.1))
+        else:
+            device.click(num[let][0], num[let][1])
+            device.sleep(rand.uniform(0.01, 0.1))
+
 
 # keyboard_eng(translit('На дворе октябрь. '
 #              'Уже убрали с полей картофель. '
