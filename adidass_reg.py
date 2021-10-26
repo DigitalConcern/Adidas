@@ -105,22 +105,41 @@ def adidas_reg(device, user, phons, turn, model):
             pass
     device.sleep(1)
     print(' пароль ентер')
-    device.sleep(2)
-    device.click(rand.randint(35, 680), rand.randint(1025, 1120))
+    device.sleep(4)
+    device.click(rand.randint(40, 600), rand.randint(1030, 1110))
     print('подтвердить аккаунт')
 
     while not device(resourceId='com.adidas.app:id/formSubtitle').exists:  # Подзаголовок экрана с телефоном
         device.sleep(1)
     device.sleep(1)
     sms.telephone_receiver(phons)
-    device.sleep(3)
+    device.sleep(1)
     kk.keyboard_num(phons['number'], device)
     print(' Ввод телефона для пруфа')
     device.sleep(2)
-    device.click(rand.randint(600, 643), rand.randint(420, 450))
+    device.click(rand.randint(600, 643), rand.randint(430, 450))
     print(' ентер телефона')
+    timer = 0
     while device(resourceId='com.adidas.app:id/formSubtitle').exists:
         device.sleep(1)
+        if device(resourceId='com.adidas.app:id/alertDialogMessage').exists:
+            timer = timer + 1
+            if (timer % 10) == 0:
+                print("Prepare for restart")
+            if timer == 80:
+                device(text="OK").click()
+                timer = 0
+                device(className='android.widget.EditText').set_text('')
+                sms.telephone_receiver(phons)
+                device.sleep(1)
+                device.click(rand.randint(75, 600), rand.randint(430, 450))
+                device.sleep(1)
+                kk.keyboard_num(phons['number'], device)
+                print(' Ввод телефона для пруфа')
+                device.sleep(2)
+                device.click(rand.randint(600, 643), rand.randint(430, 450))
+                print(' ентер телефона')
+
     device.sleep(1)
     sms.code_receiver(phons)
     if phons['code'] == "STATUS_WAIT_CODE":
@@ -132,12 +151,12 @@ def adidas_reg(device, user, phons, turn, model):
             device(className='android.widget.EditText').set_text('')
             sms.telephone_receiver(phons)
             device.sleep(3)
-            device.click(rand.randint(75, 600), rand.randint(420, 450))
+            device.click(rand.randint(75, 600), rand.randint(430, 450))
             device.sleep(1)
             kk.keyboard_num(phons['number'], device)
             print(' Ввод телефона для пруфа')
             device.sleep(2)
-            device.click(rand.randint(600, 643), rand.randint(420, 450))
+            device.click(rand.randint(600, 643), rand.randint(430, 450))
             print(' ентер телефона')
             while device(resourceId='com.adidas.app:id/formSubtitle').exists:
                 device.sleep(1)
@@ -157,8 +176,30 @@ def adidas_reg(device, user, phons, turn, model):
         if (ass % 10) == 0:
             print("Prepare for full restart")
         ass = ass + 1
-        if ass == 120 and device(className='android.widget.Button', enabled='true').exists:
-            return 0
+        if ass == 120 and device(className='android.widget.Button', enabled='true').exists and device(resourceId='com.adidas.app:id/alertDialogMessage').exists:
+            device(text="OK").click()
+            device.sleep(1)
+            device.press("back")
+            device.sleep(1)
+            device.press("back")
+            while not device(resourceId='com.adidas.app:id/formSubtitle').exists:  # Подзаголовок экрана с телефоном
+                device.sleep(1)
+            device(className='android.widget.EditText').set_text('')
+            sms.telephone_receiver(phons)
+            device.sleep(3)
+            device.click(rand.randint(75, 600), rand.randint(430, 450))
+            device.sleep(1)
+            kk.keyboard_num(phons['number'], device)
+            print(' Ввод телефона для пруфа')
+            device.sleep(2)
+            device.click(rand.randint(600, 643), rand.randint(430, 450))
+            print(' ентер телефона')
+            while device(resourceId='com.adidas.app:id/formSubtitle').exists:
+                device.sleep(1)
+            device.sleep(1)
+            sms.code_receiver(phons)
+            kk.keyboard_num(phons['code'], device)
+
     # device.sleep(1)
     # size = rand.randint(1, 15)
     # if size == 1:
