@@ -103,7 +103,7 @@ sym = {
     '+': [rand.randint(445, 480), rand.randint(1001, 1050)],
     #     '(': [rand.randint(590, 627), rand.randint(982, 1034)],
     #     ')': [rand.randint(657, 697), rand.randint(982, 1034)],
-    #     '/': [rand.randint(302, 340), rand.randint(982, 1034)],
+     '/': [rand.randint(660, 700), rand.randint(940, 1000)],
     #     '.': [rand.randint(552, 590), rand.randint(1187, 1237)]
     #     ',': [rand.randint(482, 525), rand.randint(1083, 1133)],
 }
@@ -275,7 +275,7 @@ def keyboard_num(string, device):
     for let in lets:
         if let == "+":
             device.sleep(rand.uniform(0.01, 0.1))
-            device.long_click(sym[let][0], sym[let][1])
+            device.long_click(num[let][0], num[let][1])
             device.sleep(rand.uniform(0.01, 0.1))
         else:
             device.click(num[let][0], num[let][1])

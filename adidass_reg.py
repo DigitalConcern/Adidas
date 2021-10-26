@@ -338,7 +338,7 @@ def adidas_reg(device, user, phons, turn, model):
     device.click(rand.randint(70, 600), rand.randint(655, 680))
     print('кнопка имя на карте')
     device.sleep(3)
-    kk.keyboard_eng(kk.translit(user['name'])+kk.translit(user['surname']), device)
+    kk.keyboard_eng(kk.translit(user['name'])+' '+kk.translit(user['surname']), device)
     print('Ввод имени')
     device.sleep(2)
     device.press("back")
