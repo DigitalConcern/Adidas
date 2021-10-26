@@ -5,7 +5,7 @@ def proxy_red(device, proxy, turn):
     device.press("home")
     device.sleep(1)
     device.click(439, 140)  # Proxy APP
-    device.sleep(3)
+    device.sleep(2)
     device.click(287, 1215)
     device.sleep(1)
     device.swipe(567, 680, 36, 617,0.3)
@@ -22,26 +22,26 @@ def proxy_red(device, proxy, turn):
     device.click(575, 558)
     device.sleep(1)
 
-    # device.click(351, 789)  # порт
-    # device.sleep(1)
-    # device(className="android.widget.EditText").set_text(proxy['port'])
-    # device.sleep(1)
-    # device.click(575, 558)
-    # device.sleep(1)
+    #device.click(351, 789)  # порт
+    #device.sleep(1)
+    #device(className="android.widget.EditText").set_text(proxy['port'])
+    #device.sleep(1)
+    #device.click(575, 558)
+    #device.sleep(1)
     #
-    # device.click(233, 908)  # имя
-    # device.sleep(1)
-    # device(className="android.widget.EditText").set_text(proxy["name"])
-    # device.sleep(1)
-    # device(index=1, className="android.widget.Button").click()
-    # device.sleep(1)
+    #device.click(233, 908)  # имя
+    #device.sleep(1)
+    #device(className="android.widget.EditText").set_text(proxy["name"])
+    #device.sleep(1)
+    #device(index=1, className="android.widget.Button").click()
+    #device.sleep(1)
     #
-    # device.click(298, 1062)  # пароль
-    # device.sleep(1)
-    # device(className="android.widget.EditText").set_text(proxy["password"])
-    # device.sleep(1)
-    # device(index=1, className="android.widget.Button").click()
-    # device.sleep(1)
+    #device.click(298, 1062)  # пароль
+    #device.sleep(1)
+    #device(className="android.widget.EditText").set_text(proxy["password"])
+    #device.sleep(1)
+    #device(index=1, className="android.widget.Button").click()
+    #device.sleep(1)
 
     device.sleep(1)
     device.press("back")

@@ -58,8 +58,27 @@ def data(posts, addresses, fullnames, telephones, cards):
             true_fullname = fullname
             check = True
 
+    check = False
+    if file_len('cards.txt') <= len(cards):
+        cards.clear()
+    while not check:
+        card: str = random.choice(open('cards.txt', encoding='utf-8').readlines()).strip()
+        if card not in cards:
+            true_card = card
+            check = True
+
+    check = False
+    if file_len('teleph.txt') <= len(telephones):
+        telephones.clear()
+    while not check:
+        teleph: str = random.choice(open('teleph.txt', encoding='utf-8').readlines()).strip()
+        if teleph not in telephones:
+            true_phn = teleph
+            check = True
+
     points = true_address.split(', ')
     points_name = true_fullname.split(' ')
+    card_info=true_card.split(' ')
     user = {
         'name': points_name[0],
         'surname': points_name[1],
@@ -70,13 +89,17 @@ def data(posts, addresses, fullnames, telephones, cards):
         'building': points[3],
         'flat': points[5],
         'code': points[4],
-        'tele': 'NULL',
+        'tele': true_phn,
         'post': true_post,
         'password': 'TheBestGuysEver1',
-        'card': 'NULL'
+        'card': card_info[0],
+        'date': card_info[1],
+        'year': card_info[2],
+        'CVV': card_info[3]
     }
     posts.append(true_post)
     addresses.append(true_address)
     fullnames.append(true_fullname)
+    cards.append(card_info)
 
     return user

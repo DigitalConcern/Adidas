@@ -94,13 +94,13 @@ sym = {
     '9': [rand.randint(585, 626), rand.randint(789, 829)],
     '0': [rand.randint(655, 700), rand.randint(789, 829)],
 
-    '@': [rand.randint(21, 57), rand.randint(943, 1001)]
+    '@': [rand.randint(21, 57), rand.randint(943, 1001)],
 #     '#': [rand.randint(161, 204), rand.randint(982, 1034)],
 #     '$': [rand.randint(232, 274), rand.randint(982, 1034)],
 #     '_': [rand.randint(376, 417), rand.randint(880, 927)],
 #     '&': [rand.randint(446, 491), rand.randint(982, 1034)],
-#     '-': [rand.randint(129, 169), rand.randint(1083, 1133)],
-#     '+': [rand.randint(22, 62), rand.randint(880, 927)],
+    '-': [rand.randint(377, 408), rand.randint(1001, 1050)],
+    '+': [rand.randint(445, 480), rand.randint(1001, 1050)],
 #     '(': [rand.randint(590, 627), rand.randint(982, 1034)],
 #     ')': [rand.randint(657, 697), rand.randint(982, 1034)],
 #     '/': [rand.randint(302, 340), rand.randint(982, 1034)],
@@ -109,20 +109,20 @@ sym = {
 }
 
 num = {
-    '1': [rand.randint(143, 237), rand.randint(817, 880)],
-    '2': [rand.randint(316, 400), rand.randint(817, 880)],
-    '3': [rand.randint(475, 562), rand.randint(817, 880)],
+    '1': [rand.randint(25, 165), rand.randint(900, 956)],
+    '2': [rand.randint(202, 350), rand.randint(900, 956)],
+    '3': [rand.randint(380, 519), rand.randint(900, 956)],
 
-    '4': [rand.randint(143, 237), rand.randint(950, 1015)],
-    '5': [rand.randint(316, 400), rand.randint(950, 1015)],
-    '6': [rand.randint(475, 562), rand.randint(950, 1015)],
+    '4': [rand.randint(25, 165), rand.randint(993, 1050)],
+    '5': [rand.randint(202, 350), rand.randint(993, 1050)],
+    '6': [rand.randint(380, 519), rand.randint(993, 1050)],
 
-    '7': [rand.randint(143, 237), rand.randint(1076, 1142)],
-    '8': [rand.randint(316, 400), rand.randint(1076, 1142)],
-    '9': [rand.randint(475, 562), rand.randint(1076, 1142)],
+    '7': [rand.randint(25, 165), rand.randint(1100, 1150)],
+    '8': [rand.randint(202, 350), rand.randint(1100, 1150)],
+    '9': [rand.randint(380, 519), rand.randint(1100, 1150)],
 
-    '0': [rand.randint(314, 400), rand.randint(1191, 1250)],
-    '+': [rand.randint(42, 72), rand.randint(845, 867)]
+    '0': [rand.randint(202, 350), rand.randint(1196, 1250)],
+    '+': [rand.randint(202, 350), rand.randint(1196, 1250 )]
 }
 
 
