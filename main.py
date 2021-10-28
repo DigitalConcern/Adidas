@@ -4,6 +4,7 @@ import cash_wipe as cc
 import gps_red as gps
 import proxy_red as pp
 import adidass_reg as aa
+import adidass_reg_no_kb as ab
 import adidas_ext as ee
 import keyboard as kk
 
@@ -33,6 +34,6 @@ for turn in range(ACCOUNTS):
     cc.cash_wipe(d)
     pp.proxy_red(d, prox_usr, turn)
     gps.gps_red(d, turn)
-    aa.adidas_reg(d, user, phone, turn, shoe)
+    ab.adidas_reg(d, user, phone, turn, shoe)
 
 file.close()
