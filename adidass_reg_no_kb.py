@@ -8,6 +8,7 @@ def adidas_reg(device, user, phons, turn, model):
     device.press("home")
     device.sleep(1)
     device.click(93, 150)  # ADIDAS APP
+
     while not device(resourceId='com.adidas.app:id/requestLocationPermissionImage').exists:
         device.sleep(0.5)
     device.sleep(1)
