@@ -2,12 +2,18 @@ import random as rand
 
 
 def adidas_ext(device):
+
     device.sleep(1)
     device.press("home")
     device.sleep(1)
     device.click(93, 150)  # ADIDAS APP
     device.sleep(1)
-    for i in range(12):
+    try:
+        device(text="OK").click()
+        device.sleep(1)
+    except:
+        pass
+    while not device(resourceId='com.sec.android.app.launcher:id/home_allAppsIcon').exists:
         device.press("back")
         device.sleep(0.5)
     device.sleep(3)

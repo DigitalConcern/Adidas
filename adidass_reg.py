@@ -16,10 +16,10 @@ def adidas_reg(device, user, phons, turn, model):
     device.sleep(3)
     device.click(rand.randint(113, 550), rand.randint(672, 750))
     print('Мужская одежда')
-    device.sleep(6)
+    device.sleep(8)
     device.click(rand.randint(185, 240), rand.randint(1195, 1250))
     print('Поиск')
-    device.sleep(1)
+    device.sleep(2)
 
     device.click(rand.randint(42, 100), rand.randint(1195, 1250))
     print('дропы')
@@ -27,17 +27,18 @@ def adidas_reg(device, user, phons, turn, model):
 
     while not device(text=model).exists:
         device.sleep(1)
-    device.sleep(1)
+
     device.click(rand.randint(185, 240), rand.randint(1195, 1250))
     print('Поиск')
-    device.sleep(1)
+    device.sleep(2)
 
     device.click(rand.randint(42, 100), rand.randint(1195, 1250))
     print('дропы')
-    device.sleep(1)
+    device.sleep(2)
+
 
     while not device(text=model).exists:
-        device.sleep(3)
+        device.sleep(1)
     device.sleep(2)
     device.click(rand.randint(113, 550), rand.randint(672, 750))
     print('Нажать на тапок')
@@ -72,6 +73,7 @@ def adidas_reg(device, user, phons, turn, model):
     print('Ввод емаила')
     device.sleep(2)
     device.click(rand.randint(600, 649), rand.randint(330, 375))
+    device.sleep(3)
     while not device(resourceId='com.adidas.app:id/selectableItemText').exists:
         try:
             device(text="OK").click()
@@ -96,7 +98,7 @@ def adidas_reg(device, user, phons, turn, model):
     device.sleep(1)
     device.click(rand.randint(35, 680), rand.randint(691, 755))
     # while device(resourceId='com.adidas.app:id/formFieldGuidance').exists:
-    # device.sleep(1)
+    device.sleep(3)
     while not device(resourceId='com.adidas.app:id/tvRequirementsStepContent').exists:
         device.sleep(1)
         try:
@@ -381,7 +383,7 @@ def adidas_reg(device, user, phons, turn, model):
             resourceId='com.adidas.app:id/adidasStatefulInternalButton',
             enabled='true').exists or device(text='Обновляем').exists:  # сделать проверку на иконку оплаты
         device.sleep(1)
-    device.sleep(6)
+    device.sleep(2)
 
     device.click(rand.randint(40, 650), rand.randint(1160, 1240))
     print('кнопка подтвердить с таймером')
@@ -396,3 +398,4 @@ def adidas_reg(device, user, phons, turn, model):
     while not device(className='android.widget.Button', enabled='true').exists:
         device.sleep(1)
     device.sleep(2)
+    print('Аккаунт номер ',turn,' зареган успешно')
