@@ -10,7 +10,7 @@ def adidas_reg(device, user, phons, turn, model):
     device.click(93, 150)  # ADIDAS APP
 
     while not device(resourceId='com.adidas.app:id/requestLocationPermissionImage').exists:
-        device.sleep(0.5)
+        device.sleep(0.1)
     device.sleep(1)
     device.click(rand.randint(190, 500), rand.randint(1150, 1215))
     print('Геоданные')
@@ -81,7 +81,8 @@ def adidas_reg(device, user, phons, turn, model):
     print('Ввод емаила')
     device.sleep(0.5)
     device.click(rand.randint(600, 649), rand.randint(330, 375))
-    while not device(resourceId='com.adidas.app:id/selectableItemText').exists:
+    device.sleep(2)
+    while device(className='android.widget.EditText').exists:
         device.sleep(0.1)
         try:
             device(text="OK").click()
@@ -111,14 +112,17 @@ def adidas_reg(device, user, phons, turn, model):
     device.click(rand.randint(35, 680), rand.randint(691, 755))
     # while device(resourceId='com.adidas.app:id/formFieldGuidance').exists:
     # device.sleep(1)
+    slip=1
     while not device(resourceId='com.adidas.app:id/tvRequirementsStepContent').exists:
         device.sleep(0.1)
-        try:
-            device(text="OK").click()
-            device.sleep(30)
-            device.click(rand.randint(35, 680), rand.randint(691, 755))
-        except:
-            pass
+        slip=slip+1
+        if slip==200:
+            try:
+                device(text="OK").click()
+                device.sleep(30)
+                device.click(rand.randint(35, 680), rand.randint(691, 755))
+            except:
+                pass
     device.sleep(0.5)
     print(' пароль ентер')
     while not device(resourceId='com.adidas.app:id/btnRequirementsEnable').exists:
@@ -291,7 +295,7 @@ def adidas_reg(device, user, phons, turn, model):
     # device.sleep(2)
     device(resourceId='com.adidas.app:id/rightField').set_text(user['surname'])
     print('Ввод Фамилии')
-    device.sleep(0.5)
+    device.sleep(1)
     device.click(rand.randint(599, 650), rand.randint(265, 320))
     print('продолжить')
     while not device(resourceId='com.adidas.app:id/autoCompleteSearchField').exists:
@@ -301,9 +305,9 @@ def adidas_reg(device, user, phons, turn, model):
 
     # kk.keyboard_rus(user['street'], device)
     print('Ввод Адреса')
-    while not device(resourceId='com.adidas.app:id/formFieldActionContainer').exists:
+    while not device(className='android.widget.ImageView').exists:
         device.sleep(0.1)
-    device.sleep(0.5)
+    device.sleep(1)
     device.click(rand.randint(599, 650), rand.randint(350, 400))
     print('продолжить')
     while not device(index=6, className='android.widget.LinearLayout').exists:
@@ -386,9 +390,9 @@ def adidas_reg(device, user, phons, turn, model):
     print(' кнопка выбрать ВИЗА МАСТЕРКАРД МИР')
     while not device(index=3, className='android.widget.LinearLayout').exists:
         device.sleep(0.1)
-    device.sleep(0.5)
+    device.sleep(1)
     device.click(rand.randint(70, 650), rand.randint(305, 330))
-    print(' кнопка номер карты')
+    print('Кнопка номер карты')
     device.sleep(0.5)
     device(index=0, className='android.widget.LinearLayout').child(className='android.widget.EditText').set_text(user['card'])
     #kk.keyboard_num(user['card'], device)

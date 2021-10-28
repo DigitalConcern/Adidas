@@ -2,10 +2,8 @@ import random as rand
 
 
 def gps_red(device, turn):
-    device.press("home")
-    device.sleep(0.5)
     device.click(287, 150)  ##GPS APP
-    device.sleep(0.5)
+    device.sleep(1)
     intx = rand.randint(81, 610)
     inty = rand.randint(705, 800)
     device.double_click(intx, inty, 0.01)

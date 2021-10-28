@@ -2,7 +2,6 @@ import data as dd
 
 
 def proxy_red(device, proxy, turn):
-    device.press("home")
     device.sleep(0.5)
     dron=1
     if not device(text="Droni").exists:
@@ -69,4 +68,4 @@ def proxy_red(device, proxy, turn):
         device(resourceId='android:id/switchWidget').click()
         device.sleep(3)
     device.press("home")
-    device.sleep(2)
+    device.sleep(1)
