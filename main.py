@@ -16,7 +16,7 @@ fullnames = []
 telephones = []
 cards = []
 d = u2.connect()
-ACCOUNTS = 10
+ACCOUNTS = 100
 phone = {
     'id': 'null',
     'number': 'null',

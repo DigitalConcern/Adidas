@@ -4,7 +4,9 @@ import sms
 
 
 def adidas_reg(device, user, phons, turn, model):
+    device.sleep(1)
     device.press("home")
+    device.sleep(1)
     device.click(93, 150)  # ADIDAS APP
     while not device(resourceId='com.adidas.app:id/requestLocationPermissionImage').exists:
         device.sleep(1)
@@ -122,23 +124,13 @@ def adidas_reg(device, user, phons, turn, model):
     timer = 0
     while device(resourceId='com.adidas.app:id/formSubtitle').exists:
         device.sleep(1)
-        if device(resourceId='com.adidas.app:id/alertDialogMessage').exists:
+    while device(resourceId='com.adidas.app:id/alertDialogMessage').exists:
             timer = timer + 1
             if (timer % 10) == 0:
                 print("Prepare for restart")
-            if timer == 80:
+            if timer == 20:
                 device(text="OK").click()
-                timer = 0
-                device(className='android.widget.EditText').set_text('')
-                sms.telephone_receiver(phons)
-                device.sleep(1)
-                device.click(rand.randint(75, 600), rand.randint(430, 450))
-                device.sleep(1)
-                kk.keyboard_num(phons['number'], device)
-                print(' Ввод телефона для пруфа')
-                device.sleep(2)
-                device.click(rand.randint(600, 643), rand.randint(430, 450))
-                print(' ентер телефона')
+                return 0
 
     device.sleep(1)
     sms.code_receiver(phons)
@@ -176,29 +168,9 @@ def adidas_reg(device, user, phons, turn, model):
         if (ass % 10) == 0:
             print("Prepare for full restart")
         ass = ass + 1
-        if ass == 120 and device(className='android.widget.Button', enabled='true').exists and device(resourceId='com.adidas.app:id/alertDialogMessage').exists:
+        if ass == 20 and device(className='android.widget.Button', enabled='true').exists and device(resourceId='com.adidas.app:id/alertDialogMessage').exists:
             device(text="OK").click()
-            device.sleep(1)
-            device.press("back")
-            device.sleep(1)
-            device.press("back")
-            while not device(resourceId='com.adidas.app:id/formSubtitle').exists:  # Подзаголовок экрана с телефоном
-                device.sleep(1)
-            device(className='android.widget.EditText').set_text('')
-            sms.telephone_receiver(phons)
-            device.sleep(3)
-            device.click(rand.randint(75, 600), rand.randint(430, 450))
-            device.sleep(1)
-            kk.keyboard_num(phons['number'], device)
-            print(' Ввод телефона для пруфа')
-            device.sleep(2)
-            device.click(rand.randint(600, 643), rand.randint(430, 450))
-            print(' ентер телефона')
-            while device(resourceId='com.adidas.app:id/formSubtitle').exists:
-                device.sleep(1)
-            device.sleep(1)
-            sms.code_receiver(phons)
-            kk.keyboard_num(phons['code'], device)
+            return 0
 
     # device.sleep(1)
     # size = rand.randint(1, 15)
@@ -344,9 +316,9 @@ def adidas_reg(device, user, phons, turn, model):
     print('Ввод телефона НОРМ ТЕЛЕФОН С ПЕРЕАДР')
     device.sleep(2)
     device.press("back")
-    while not device(resourceId='com.adidas.app:id/adidasStatefulInternalButton', enabled='true').exists:
-        device.sleep(1)
-    device.sleep(1)
+    # while not device(resourceId='com.adidas.app:id/adidasStatefulInternalButton', enabled='true').exists:
+    #     device.sleep(1)
+    device.sleep(3)
     device.click(rand.randint(40, 680), rand.randint(1239, 1240))
     print('Кнопка Сохранить')
     while not device(resourceId='com.adidas.app:id/addressText').exists:
@@ -405,11 +377,11 @@ def adidas_reg(device, user, phons, turn, model):
     device.click(rand.randint(70, 600), rand.randint(1235, 1240))
     print('кнопка Сохранить карту')
     device.sleep(2)
-    while not device(resourceId='com.adidas.app:id/conditionsText').exists and not device(
+    while not device(resourceId='com.adidas.app:id/conditionsText').exists or not device(
             resourceId='com.adidas.app:id/adidasStatefulInternalButton',
-            enabled='true').exists:  # сделать проверку на иконку оплаты
+            enabled='true').exists or device(text='Обновляем').exists:  # сделать проверку на иконку оплаты
         device.sleep(1)
-    device.sleep(2)
+    device.sleep(6)
 
     device.click(rand.randint(40, 650), rand.randint(1160, 1240))
     print('кнопка подтвердить с таймером')
