@@ -3,7 +3,7 @@ import data as dd
 
 def proxy_red(device, proxy, turn):
     device.press("home")
-    device.sleep(1)
+    device.sleep(0.5)
     dron=1
     if not device(text="Droni").exists:
         dron=0
@@ -12,7 +12,7 @@ def proxy_red(device, proxy, turn):
     if (dron==1):
         device.click(287, 1215)
         device.sleep(1)
-        device.swipe(567, 680, 36, 617,0.3)
+        device.swipe(567, 680, 36, 617, 0.05)
         device.sleep(1)
         device.click(248, 1057)  # wifi
         device.sleep(1)
@@ -52,7 +52,7 @@ def proxy_red(device, proxy, turn):
         device.sleep(1)
         device.press("back")
         device.sleep(1)
-        device.swipe(36, 617, 567, 680,0.3)
+        device.swipe(36, 617, 567, 680, 0.05)
         device.sleep(1)
         device.click(287, 1215)
         device.sleep(5)

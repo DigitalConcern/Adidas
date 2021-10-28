@@ -7,14 +7,18 @@ def adidas_reg(device, user, phons, turn, model):
     device.press("home")
     device.click(93, 150)  # ADIDAS APP
     while not device(resourceId='com.adidas.app:id/requestLocationPermissionImage').exists:
-        device.sleep(1)
+        device.sleep(0.5)
     device.sleep(1)
     device.click(rand.randint(190, 500), rand.randint(1150, 1215))
     print('Геоданные')
-    device.sleep(3)
+    device.sleep(1)
     device.click(rand.randint(113, 550), rand.randint(672, 750))
     print('Мужская одежда')
-    device.sleep(6)
+    device.sleep(0.5)
+
+    device.click(rand.randint(113, 550), rand.randint(672, 750))
+    device.sleep(5)
+
     device.click(rand.randint(185, 240), rand.randint(1195, 1250))
     print('Поиск')
     device.sleep(1)
@@ -24,57 +28,58 @@ def adidas_reg(device, user, phons, turn, model):
     device.sleep(1)
 
     while not device(text=model).exists:
-        device.sleep(1)
+        device.sleep(0.1)
     device.sleep(1)
     device.click(rand.randint(185, 240), rand.randint(1195, 1250))
     print('Поиск')
-    device.sleep(1)
+    device.sleep(0.5)
 
     device.click(rand.randint(42, 100), rand.randint(1195, 1250))
     print('дропы')
-    device.sleep(1)
+    device.sleep(0.5)
 
     while not device(text=model).exists:
-        device.sleep(3)
-    device.sleep(2)
+        device.sleep(0.1)
+    device.sleep(0.5)
     device.click(rand.randint(113, 550), rand.randint(672, 750))
     print('Нажать на тапок')
 
-    device.sleep(2)
+    device.sleep(0.5)
 
-    while not device(resourceId='com.adidas.app:id/adidasStatefulInternalButton').exists:
-        device.sleep(1)
+    while not device(resourceId='com.adidas.app:id/adidasStatefulInternalButton', clickable='true').exists:
+        device.sleep(0.1)
         # device.click(rand.randint(113, 550), rand.randint(672, 750))
         # print('Нажать на тапок')
-    device.sleep(2)
+    device.sleep(1)
     device.click(rand.randint(50, 670), rand.randint(1130, 1220))
     print('принять участие')
 
     while not device(resourceId='com.adidas.app:id/btnRequirementsEnable').exists:
-        device.sleep(1)
+        device.sleep(0.1)
         # device.click(rand.randint(50, 670), rand.randint(1130, 1220))
         # print(' принять участие')
-    device.sleep(2)
+    device.sleep(0.5)
     device.click(rand.randint(40, 680), rand.randint(1130, 1210))
     print('Войди в аккаунт')
-    device.sleep(2)
+    device.sleep(0.5)
 
     while not device(text='Email').exists:
-        device.sleep(1)
-    device.sleep(2)
+        device.sleep(0.1)
+    device.sleep(0.5)
     device.click(rand.randint(76, 519), rand.randint(510, 520))
 
     print(' Емаил')
-    device.sleep(3)
+    device.sleep(0.5)
 
     # kk.keyboard_eng(user['post'], device)
     # device(text='Email', className='android.widget.EditText').press
     device(text='Email', className='android.widget.EditText').set_text(user['post'])
 
     print('Ввод емаила')
-    device.sleep(2)
+    device.sleep(0.5)
     device.click(rand.randint(600, 649), rand.randint(330, 375))
     while not device(resourceId='com.adidas.app:id/selectableItemText').exists:
+        device.sleep(0.1)
         try:
             device(text="OK").click()
             device.sleep(30)
@@ -82,14 +87,14 @@ def adidas_reg(device, user, phons, turn, model):
         except:
             pass
     print('Емаил ентер')
-    while not device(resourceId='com.adidas.app:id/selectableItemText').exists:
-        device.sleep(1)
-    device.sleep(1)
+    # while not device(resourceId='com.adidas.app:id/formFieldTitleView').exists:
+    #     device.sleep(0.1)
+    device.sleep(0.5)
     device.click(rand.randint(366, 480), rand.randint(360, 380))
     print('Cтарше 14')
     while not device(className='android.widget.EditText').exists:
-        device.sleep(1)
-    device.sleep(1)
+        device.sleep(0.1)
+    device.sleep(0.5)
 
     # device.click(rand.randint(70, 250), rand.randint(360, 380))
     # print('Пароль клик')
@@ -104,35 +109,37 @@ def adidas_reg(device, user, phons, turn, model):
     # while device(resourceId='com.adidas.app:id/formFieldGuidance').exists:
     # device.sleep(1)
     while not device(resourceId='com.adidas.app:id/tvRequirementsStepContent').exists:
-        device.sleep(1)
+        device.sleep(0.1)
         try:
             device(text="OK").click()
             device.sleep(30)
             device.click(rand.randint(35, 680), rand.randint(691, 755))
         except:
             pass
-    device.sleep(1)
+    device.sleep(0.5)
     print(' пароль ентер')
-    device.sleep(4)
+    while not device(resourceId='com.adidas.app:id/btnRequirementsEnable').exists:
+        device.sleep(0.1)
+    device.sleep(0.5)
     device.click(rand.randint(40, 600), rand.randint(1030, 1110))
     print('подтвердить аккаунт')
 
     while not device(resourceId='com.adidas.app:id/formSubtitle').exists:  # Подзаголовок экрана с телефоном
-        device.sleep(1)
-    device.sleep(1)
+        device.sleep(0.1)
+    device.sleep(0.5)
     sms.telephone_receiver(phons)
-    device.sleep(1)
+    device.sleep(0.5)
 
     # kk.keyboard_num(phons['number'], device)
     device(className='android.widget.EditText').set_text(phons['number'])
 
     print(' Ввод телефона для пруфа')
-    device.sleep(2)
+    device.sleep(0.5)
     device.click(rand.randint(600, 643), rand.randint(430, 450))
     print(' ентер телефона')
     timer = 0
     while device(resourceId='com.adidas.app:id/formSubtitle').exists:
-        device.sleep(1)
+        device.sleep(0.1)
         if device(resourceId='com.adidas.app:id/alertDialogMessage').exists:
             timer = timer + 1
             if (timer % 10) == 0:
@@ -161,7 +168,7 @@ def adidas_reg(device, user, phons, turn, model):
             device.press("back")
             device.press("back")
             while not device(resourceId='com.adidas.app:id/formSubtitle').exists:  # Подзаголовок экрана с телефоном
-                device.sleep(1)
+                device.sleep(0.1)
             device(className='android.widget.EditText').set_text('')
             sms.telephone_receiver(phons)
             device.sleep(3)
@@ -176,7 +183,7 @@ def adidas_reg(device, user, phons, turn, model):
             device.click(rand.randint(600, 643), rand.randint(430, 450))
             print(' ентер телефона')
             while device(resourceId='com.adidas.app:id/formSubtitle').exists:
-                device.sleep(1)
+                device.sleep(0.1)
             device.sleep(1)
             sms.code_receiver(phons)
 
@@ -205,7 +212,7 @@ def adidas_reg(device, user, phons, turn, model):
             device.sleep(1)
             device.press("back")
             while not device(resourceId='com.adidas.app:id/formSubtitle').exists:  # Подзаголовок экрана с телефоном
-                device.sleep(1)
+                device.sleep(0.1)
             device(className='android.widget.EditText').set_text('')
             sms.telephone_receiver(phons)
             device.sleep(3)
@@ -217,7 +224,7 @@ def adidas_reg(device, user, phons, turn, model):
             device.click(rand.randint(600, 643), rand.randint(430, 450))
             print(' ентер телефона')
             while device(resourceId='com.adidas.app:id/formSubtitle').exists:
-                device.sleep(1)
+                device.sleep(0.1)
             device.sleep(1)
             sms.code_receiver(phons)
             kk.keyboard_num(phons['code'], device)
@@ -280,27 +287,27 @@ def adidas_reg(device, user, phons, turn, model):
     #    for p in range(8):
     #        device.click(rand.randint(465, 530), rand.randint(636, 674))
     #        device.sleep(1)
-    device.sleep(1)
+    device.sleep(0.5)
     device.click(rand.randint(50, 670), rand.randint(980, 1054))
     print('продолжить с разм')
 
     while not device(resourceId='com.adidas.app:id/termsText').exists:
-        device.sleep(1)
-    device.sleep(1)
+        device.sleep(0.1)
+    device.sleep(0.5)
 
     # НАЧИНАЕТСЯ ЧЕРНЫЙ ЭКРАН
     device.click(rand.randint(120, 680), rand.randint(595, 690))
     print('адрес')
 
     while not device(resourceId='com.adidas.app:id/addAddress').exists:
-        device.sleep(1)
+        device.sleep(0.1)
     device.sleep(1)
 
     device.click(rand.randint(35, 680), rand.randint(1160, 1240))
     print('Добавить адрес')
     while not device(resourceId='com.adidas.app:id/leftField').exists:
-        device.sleep(1)
-    device.sleep(1)
+        device.sleep(0.1)
+    device.sleep(0.5)
     # device.click(rand.randint(66, 300), rand.randint(300, 325))
     print('имя')
     # device.sleep(2)
@@ -313,29 +320,31 @@ def adidas_reg(device, user, phons, turn, model):
     # device.sleep(2)
     device(resourceId='com.adidas.app:id/rightField').set_text(user['surname'])
     print('Ввод Фамилии')
-    device.sleep(2)
+    device.sleep(0.5)
     device.click(rand.randint(599, 650), rand.randint(265, 320))
     print('продолжить')
     while not device(resourceId='com.adidas.app:id/autoCompleteSearchField').exists:
-        device.sleep(1)
-    device.sleep(1)
+        device.sleep(0.1)
+    device.sleep(0.5)
     device(resourceId='com.adidas.app:id/adidasInputFieldContentView').set_text(user['street'])
 
     # kk.keyboard_rus(user['street'], device)
     print('Ввод Адреса')
-    device.sleep(3)
+    while not device(resourceId='com.adidas.app:id/formFieldActionContainer').exists:
+        device.sleep(0.1)
+    device.sleep(0.5)
     device.click(rand.randint(599, 650), rand.randint(350, 400))
     print('продолжить')
     while not device(index=6, className='android.widget.LinearLayout').exists:
-        device.sleep(1)
-    device.sleep(1)
+        device.sleep(0.1)
+    device.sleep(0.5)
     # Редачим итоговую анкету с адресом\именем
     device.click(rand.randint(70, 600), rand.randint(855, 880))
     print('кнопка дома')
     device.sleep(0.5)
     device.press("back")
     device.sleep(0.5)
-    device(index=3,className='android.widget.LinearLayout').child(className='android.widget.EditText').set_text(user['building'])
+    device(index=3, className='android.widget.LinearLayout').child(className='android.widget.EditText').set_text(user['building'])
     # kk.keyboard_rus(user['building'], device)
     print('Ввод дома')
     device.sleep(0.5)
@@ -355,7 +364,7 @@ def adidas_reg(device, user, phons, turn, model):
     device.sleep(0.5)
     device.press("back")
     device.sleep(0.5)
-    device(index=5,className='android.widget.LinearLayout').child(className='android.widget.EditText').set_text(user['city'])
+    device(index=5, className='android.widget.LinearLayout').child(className='android.widget.EditText').set_text(user['city'])
     # kk.keyboard_rus(user['city'], device)
     print('Ввод города')
     device.sleep(0.5)
@@ -367,7 +376,7 @@ def adidas_reg(device, user, phons, turn, model):
     device.sleep(0.5)
     device.press("back")
     device.sleep(0.5)
-    device(index=6,className='android.widget.LinearLayout').child(className='android.widget.EditText').set_text(user['code'])
+    device(index=6, className='android.widget.LinearLayout').child(className='android.widget.EditText').set_text(user['code'])
     # kk.keyboard_num(user['code'], device)
     print('Ввод индекса')
     device.sleep(0.5)
@@ -377,35 +386,35 @@ def adidas_reg(device, user, phons, turn, model):
     device.sleep(0.5)
     device.press("back")
     device.sleep(0.5)
-    device(index=7,className='android.widget.LinearLayout').child(className='android.widget.EditText').set_text(user['tele'])
+    device(index=7, className='android.widget.LinearLayout').child(className='android.widget.EditText').set_text(user['tele'])
     # kk.keyboard_num("+79776543035", device)
     print('Ввод телефона НОРМ ТЕЛЕФОН С ПЕРЕАДР')
     device.sleep(0.5)
     while not device(resourceId='com.adidas.app:id/adidasStatefulInternalButton', enabled='true').exists:
         device.sleep(1)
-    device.sleep(1)
+    device.sleep(0.5)
     device.click(rand.randint(40, 680), rand.randint(1239, 1240))
     print('Кнопка Сохранить')
     while not device(resourceId='com.adidas.app:id/addressText').exists:
         device.sleep(1)
-    device.sleep(1)
+    device.sleep(0.5)
     device.click(rand.randint(75, 400), rand.randint(900, 1000))
     print('Выбрать адрес')
 
     while not device(resourceId='com.adidas.app:id/checkout_screen_payment_method').exists:
-        device.sleep(1)
-    device.sleep(1)
+        device.sleep(0.1)
+    device.sleep(0.5)
 
     # Добавление оплаты
     device.click(rand.randint(480, 680), rand.randint(860, 890))  # Добавить проверку
     print(' кнопка выбрать метод оплаты')
     while not device(resourceId='com.adidas.app:id/addCardRoot').exists:
-        device.sleep(1)
-    device.sleep(1)
+        device.sleep(0.1)
+    device.sleep(0.5)
     device.click(rand.randint(70, 500), rand.randint(1175, 1230))
     print(' кнопка выбрать ВИЗА МАСТЕРКАРД МИР')
     while not device(index=3, className='android.widget.LinearLayout').exists:
-        device.sleep(1)
+        device.sleep(0.1)
     device.sleep(0.5)
     device.click(rand.randint(70, 650), rand.randint(305, 330))
     print(' кнопка номер карты')
@@ -445,22 +454,22 @@ def adidas_reg(device, user, phons, turn, model):
     device.sleep(1)
     device.click(rand.randint(70, 600), rand.randint(1235, 1240))
     print('кнопка Сохранить карту')
-    device.sleep(2)
+    device.sleep(0.5)
     while not device(resourceId='com.adidas.app:id/conditionsText').exists and not device(
             resourceId='com.adidas.app:id/adidasStatefulInternalButton',
             enabled='true').exists:  # сделать проверку на иконку оплаты
-        device.sleep(1)
+        device.sleep(0.1)
     device.sleep(2)
 
     device.click(rand.randint(40, 650), rand.randint(1160, 1240))
     print('кнопка подтвердить с таймером')
 
     while not device(resourceId='com.adidas.app:id/alertDialogMessage').exists:
-        device.sleep(1)
-    device.sleep(1)
+        device.sleep(0.1)
+    device.sleep(0.5)
 
     device.click(rand.randint(370, 650), rand.randint(766, 850))
     print('кнопка подтвердить')
-    device.sleep(7)
+    device.sleep(0.5)
     while not device(className='android.widget.Button', enabled='true').exists:
-        device.sleep(1)
+        device.sleep(0.1)

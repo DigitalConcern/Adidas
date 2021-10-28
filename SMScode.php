@@ -29,8 +29,8 @@ do {
     sleep(2);
     $ctr += 2;
 
-} while((explode(":", $status)[0] != "STATUS_OK") && $ctr < 240);
-if ($ctr >= 240) {
+} while((explode(":", $status)[0] != "STATUS_OK") && $ctr < 150);
+if ($ctr >= 150) {
     $toFile1 = " ";
     $toFile2 = "STATUS_WAIT_CODE";
     fwrite($fd, $toFile1);
