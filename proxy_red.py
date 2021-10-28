@@ -5,7 +5,7 @@ def proxy_red(device, proxy, turn):
     device.press("home")
     device.sleep(1)
     dron=1
-    if not device(text="Drony").exists:
+    if not device(text="Droni").exists:
         dron=0
     device.click(439, 140)  # Proxy APP
     device.sleep(2)
