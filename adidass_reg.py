@@ -126,7 +126,7 @@ def adidas_reg(device, user, phons, turn, model):
     timer = 0
     while device(resourceId='com.adidas.app:id/formSubtitle').exists:
         device.sleep(0.5)
-    while device(resourceId='com.adidas.app:id/alertDialogMessage').exists:
+        if device(resourceId='com.adidas.app:id/alertDialogMessage').exists:
             timer = timer + 1
             if (timer % 10) == 0:
                 print("Prepare for restart")

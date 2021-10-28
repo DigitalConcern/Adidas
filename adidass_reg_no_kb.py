@@ -4,7 +4,9 @@ import sms
 
 
 def adidas_reg(device, user, phons, turn, model):
+    device.sleep(1)
     device.press("home")
+    device.sleep(1)
     device.click(93, 150)  # ADIDAS APP
     while not device(resourceId='com.adidas.app:id/requestLocationPermissionImage').exists:
         device.sleep(0.5)
@@ -144,22 +146,9 @@ def adidas_reg(device, user, phons, turn, model):
             timer = timer + 1
             if (timer % 10) == 0:
                 print("Prepare for restart")
-            if timer == 80:
+            if timer == 20:
                 device(text="OK").click()
-                timer = 0
-                device(className='android.widget.EditText').set_text('')
-                sms.telephone_receiver(phons)
-                device.sleep(1)
-                device.click(rand.randint(75, 600), rand.randint(430, 450))
-                device.sleep(1)
-
-                # kk.keyboard_num(phons['number'], device)
-                device(className='android.widget.EditText').set_text(phons['number'])
-
-                print(' Ввод телефона для пруфа')
-                device.sleep(2)
-                device.click(rand.randint(600, 643), rand.randint(430, 450))
-                print(' ентер телефона')
+                return 0
 
     device.sleep(1)
     sms.code_receiver(phons)
@@ -205,29 +194,10 @@ def adidas_reg(device, user, phons, turn, model):
         if (ass % 10) == 0:
             print("Prepare for full restart")
         ass = ass + 1
-        if ass == 120 and device(className='android.widget.Button', enabled='true').exists and device(resourceId='com.adidas.app:id/alertDialogMessage').exists:
+        if ass == 20 and device(className='android.widget.Button', enabled='true').exists and device(
+                resourceId='com.adidas.app:id/alertDialogMessage').exists:
             device(text="OK").click()
-            device.sleep(1)
-            device.press("back")
-            device.sleep(1)
-            device.press("back")
-            while not device(resourceId='com.adidas.app:id/formSubtitle').exists:  # Подзаголовок экрана с телефоном
-                device.sleep(0.1)
-            device(className='android.widget.EditText').set_text('')
-            sms.telephone_receiver(phons)
-            device.sleep(3)
-            device.click(rand.randint(75, 600), rand.randint(430, 450))
-            device.sleep(1)
-            kk.keyboard_num(phons['number'], device)
-            print(' Ввод телефона для пруфа')
-            device.sleep(2)
-            device.click(rand.randint(600, 643), rand.randint(430, 450))
-            print(' ентер телефона')
-            while device(resourceId='com.adidas.app:id/formSubtitle').exists:
-                device.sleep(0.1)
-            device.sleep(1)
-            sms.code_receiver(phons)
-            kk.keyboard_num(phons['code'], device)
+            return 0
 
     # device.sleep(1)
     # size = rand.randint(1, 15)

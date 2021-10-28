@@ -27,13 +27,17 @@ phone = {
 file = open('UsListLog.txt', 'w+')
 for turn in range(ACCOUNTS):
     ee.adidas_ext(d)
+    print("Adidas exit")
     user = dd.data(posts, addresses, fullnames, telephones, cards)
     file.write(str(user) + '\n')
     print(turn, " ", user)
     prox_usr = dd.proxy(plist)
     cc.cash_wipe(d)
+    print("Cache wiped")
     pp.proxy_red(d, prox_usr, turn)
+    print("Proxy redded")
     gps.gps_red(d, turn)
+    print("gps redded")
     ab.adidas_reg(d, user, phone, turn, shoe)
 
 file.close()
