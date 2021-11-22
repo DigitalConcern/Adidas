@@ -53,7 +53,7 @@ def adidas_reg(device, user, phons, turn, model):
         device.sleep(0.1)
         # device.click(rand.randint(113, 550), rand.randint(672, 750))
         # print('Нажать на тапок')
-    device.sleep(1)
+    device.sleep(2)
     device.click(rand.randint(50, 670), rand.randint(1130, 1220))
     print('принять участие')
 

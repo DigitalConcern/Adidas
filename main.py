@@ -8,7 +8,7 @@ import adidass_reg_no_kb as ab
 import adidas_ext as ee
 import keyboard as kk
 
-shoe = 'YEEZY 500'
+shoe = 'YEEZY BOOST 700'
 
 plist = []
 posts = []
@@ -17,7 +17,7 @@ fullnames = []
 telephones = []
 cards = []
 d = u2.connect()
-ACCOUNTS = 100
+ACCOUNTS = 48
 phone = {
     'id': 'null',
     'number': 'null',
